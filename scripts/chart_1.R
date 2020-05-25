@@ -28,8 +28,13 @@ types_of_crime <- seattle_data %>%
   summarise(total_by_type = sum(count))
 
 #create a chart tompare each crime categorys frequency
-ggplot(types_of_crime) +
+#this graph is meant to highlight the offense parent groups that stand out
+#or in other words the most frequently occuring crimes
+crime_frequency <- ggplot(types_of_crime) +
   geom_col(mapping = aes(x = offense_parent_group, y = total_by_type)) +
+  theme_bw() +
   theme(axis.text.x = element_text(angle = 60, hjust = 1)) +
   ggtitle("Which Crime Type is Most Popular?") +
   theme(legend.position = "none")
+
+crime_frequency
