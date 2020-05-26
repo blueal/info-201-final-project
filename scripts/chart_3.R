@@ -18,6 +18,8 @@ seattle_map <- leaflet(seattle_data_filter) %>%
   addCircles(
     lng = ~longitude,
     lat = ~latitude,
-    fillColor = ~offense
+    color = ~crime_against_category,
+    fillColor = ~offense,
+    radius = 100
   )
-addCircle
+
