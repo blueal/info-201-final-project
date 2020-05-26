@@ -35,6 +35,9 @@ crime_frequency <- ggplot(types_of_crime) +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 60, hjust = 1)) +
   ggtitle("Which Crime Type is Most Popular?") +
-  theme(legend.position = "none")
+  theme(legend.position = "none") +
+  ylab("Number of Occurrances") +
+  xlab("Type of Crime") +
+  theme(axis.title.x = element_text(margin = margin(t = 20)))
 
 crime_frequency
