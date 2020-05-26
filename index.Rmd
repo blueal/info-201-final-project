@@ -1,21 +1,48 @@
 ---
-title: "index"
+title: "Midpoint Deliverable"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(leaflet)
+source("scripts/chart_1.R")
+source("scripts/chart_2.R")
+source("scripts/chart_3.R")
 ```
-# Midpoint Deliverable
+
 ## Intro Paragraph 
+Safety issues have always been in the spotlight, in the United States as strict gun regulations do not exist. And with the non-stop UW Alert messages reporting crimes, such as robberies and gun fires, safety has become one of the UW students' major concerns nowadays. Therefore, as a team, we decided to tie this project to our daily lives and analyze the pattern of crimes around our community. 
+
+We will be using 3 data sets ([SPD Crime Data](https://data.seattle.gov/Public-Safety/SPD-Crime-Data-2008-Present/tazs-3rd5), [King County Sheriff's Office - Incident Dataset](https://data.kingcounty.gov/Law-Enforcement-Safety/King-County-Sheriff-s-Office-Incident-Dataset/rzfs-wyvy), [911 Seattle Call Data](https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy)). These datasets contain data such as offense start time, latitude & longitude, offense type, call-in resolution, etc., that help us answer these following questions:
+
+* What areas have the highest density of crime? 
+* What types of crime? And in what areas?
+* What is the time of year or day for the offense, length of offense, report date?
+* What is the relationship between call-ins and arrests (i.e. resolution of call-ins)?
+
+#### Data Description
+
+* [SPD Crime Data](https://data.seattle.gov/Public-Safety/SPD-Crime-Data-2008-Present/tazs-3rd5): This dataset provides crime data using the standardized crime classifications and is updated every twenty four hours.
+* [King County Sheriff's Office - Incident Dataset](https://data.kingcounty.gov/Law-Enforcement-Safety/King-County-Sheriff-s-Office-Incident-Dataset/rzfs-wyvy): This dataset contains instances of crime reported by King Country Sherrif office and another policing agency, e.g. SPD.
+* [911 Seattle Call Data](https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy): 911 call data is from the Data Analytics Platform (DAP) and is logged with the Seattle Police Department (SPD) Communications Center. It contains calls of police officers and observations of the field from within the community and is updated(upload) daily before a full refresh twice a year. Although the dataset is quite huge with 4.34 Million rows of data, we acknowledge our constraint as this dataset only includes records with police responses to the 911 call. 
 
 ## Summary Paragraph
 
 ## Table
 
 ## Chart 1
+```{r out.width='100%', echo=FALSE}
+ggplotly(crime_frequency)
+```
 
 ## Chart 2
+```{r out.width='100%', echo=FALSE}
+ggplotly(num_crimes_per_hour)
+```
 
 ## Chart 3
-
+```{r out.width='100%', echo=FALSE}
+seattle_map
+```
