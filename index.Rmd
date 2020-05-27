@@ -47,7 +47,7 @@ We will be using ([SPD Crime Data](https://data.seattle.gov/Public-Safety/SPD-Cr
 summary_table <- get_summary_info(seattle_data)
 
 ```
-The Seattle SPD data contains `r summary_table$columns` columns with `r summary_table$rows` rows of data. It is a very large dataset that contains almost every police incident starting in 2008. It breaks down Offenses into `r summary_table$offense_parent_types` parent types, with a total of `r summary_table$offense_types` unique offense types. Some interesting stats which we figured out from this dataset can include Safest/worst neighborhoods, and common offense types. We found that the average crimes per neighborhood throughout the city was `r format(summary_table$avg_crimes_per_neighborhood, scientific=FALSE)` per neighborhood overall. 
+The Seattle SPD data contains `r summary_table$columns` columns with `r summary_table$rows` rows of data. It is a very large dataset that contains almost every police incident starting in 2008. It breaks down Offenses into `r summary_table$offense_parent_types` parent types, with a total of `r summary_table$offense_types` unique offense types. Some interesting stats which we figured out from this dataset include safest/worst neighborhoods and common offense types. We found that the overall average number of crimes per neighborhood was `r format(summary_table$avg_crimes_per_neighborhood, scientific=FALSE)`. 
 
 ### Safest Neighborhood
 1. `r summary_table$safest_neighborhoods$MCPP[1]`
@@ -100,7 +100,7 @@ kable(offense_info) %>%
 avg_delay <- avg_report_delay(offense_info)
 ```
 
-For all crime types, the difference in time between crime occurrence and report averaged to `r avg_delay`days. These two charts shed light on the lack of accuracy for immediate estimations of crime density (both by type and Seattle area). Specifically, crimes involving sexual offenses will most likely be under-reported & even if they are, potentially months or years after the offense takes place--making a fair prosecution difficult.
+For all crime types, the difference in time between crime occurrence and report averaged to `r avg_delay` days. These two charts shed light on the lack of accuracy for immediate estimations of crime density (both by type and Seattle area). Specifically, crimes involving sexual offenses will most likely be under-reported & even if they are, potentially months or years after the offense takes place--making a fair prosecution difficult.
 
 ## Most Popular Criminal Type
 For this chart, we are trying to answer the question what crime type is the most popular. We decided to use a bar chart because it is the clearest way to display comparison between counts of data. It displays the type on the x axis and the count on the y axis. Therefore, we can easily trace each intersection and know that “Larceny-Theft” is the most popular crime in the Seattle area. The second most popular crime was "Destruction/Damage/Vandalism of Property"
