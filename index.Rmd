@@ -17,10 +17,10 @@ library(kableExtra)
 seattle_data <- 
     vroom("https://data.seattle.gov/resource/tazs-3rd5.csv")
 
+source("scripts/table.R")
 source("scripts/chart_1.R")
 source("scripts/chart_2.R")
 source("scripts/chart_3.R")
-source("scripts/table.R")
 ```
 
 ## Intro Paragraph 
@@ -62,7 +62,9 @@ ggplotly(crime_frequency)
 ggplotly(num_crimes_per_hour)
 ```
 
-## Chart 3
+## Visualization of Seattle's Criminal Activity
+One of the most important aspect of the "911 Seattle Call Data" is that it contains longitudinal and latitudinal numbers. With this information, we decided to create an interactive map to show the relative location of each criminal activity. This method offers a unique perspective on not only the location of each crime call, but also which 'offense' was committed, which area of Seattle had the highest density of calls/crimes, and  which 'criminal type' offense was done.
+
 ```{r out.width='100%', echo = FALSE}
 seattle_map(seattle_data)
 ```
