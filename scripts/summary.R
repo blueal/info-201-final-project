@@ -1,3 +1,6 @@
+
+library(dplyr)
+
 # A function that takes in a dataset and returns a list of info about it:
 #SPECIAL FIELDS:
 #safestNeighborhoods, badestNeighborhoods, MostCommonCrimes, LeastCommonCrimes
