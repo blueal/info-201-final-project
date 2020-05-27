@@ -7,7 +7,7 @@ library(plotly)
 library(stringr)
 library(vroom)
 
-#Creat a function to see which crimes are most popular
+#Create a function to see which crimes are most popular
 most_pop_crime <- function(info) {
   seattle <- info
   types_of_crime <- seattle %>%
