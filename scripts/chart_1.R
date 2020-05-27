@@ -7,6 +7,8 @@ library(plotly)
 library(stringr)
 library(vroom)
 
+some_info <- vroom("https://data.seattle.gov/resource/tazs-3rd5.csv")
+
 #Creat a function to see which crimes are most popular
 most_pop_crime <- function(info) {
   seattle <- info
