@@ -53,8 +53,7 @@ ggplotly(num_crimes_per_hour)
 ```
 
 ## Chart 3
-
-```{r, echo = FALSE}
+```{r out.width='100%', echo = FALSE}
 seattle_map(seattle_data)
 ```
 

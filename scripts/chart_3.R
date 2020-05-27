@@ -6,7 +6,12 @@ library(leaflet)
 
 seattle_map <- function(data_frame) {
   filter_data <- data_frame %>%
-    select(crime_against_category, offense, `_100_block_address`, latitude, longitude) %>%
+    select(
+      crime_against_category,
+      precinct,
+      offense, `_100_block_address`,
+      latitude,
+      longitude) %>%
     filter(latitude != "0E-9") %>%
     mutate(latitude = as.numeric(latitude), longitude = as.numeric(longitude))
   description <- paste0(
@@ -16,12 +21,25 @@ seattle_map <- function(data_frame) {
     "<br/>",
     "<b>Offense: </b>", filter_data$offense
   )
+  pal <- colorFactor(
+    palette = "Spectral",
+    domain = filter_data$precinct
+  )
   seattle <- leaflet(filter_data) %>%
     addTiles() %>%
     addCircles(
       lng = ~longitude,
       lat = ~latitude,
-      popup = ~description
+      popup = ~description,
+      color = ~pal(precinct),
+      radius = 25,
+      opacity = 50
+    ) %>%
+    addLegend(
+      "bottomright",
+      pal = pal,
+      values = ~precinct,
+      title = "Precinct of Crimes"
     )
   return(seattle)
 }

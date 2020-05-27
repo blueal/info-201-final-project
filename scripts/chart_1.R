@@ -7,7 +7,6 @@ library(plotly)
 library(stringr)
 library(vroom)
 
-
 most_pop_crime <- function(df_https) {
   data <- vroom(df_https)
   types_of_crime <- data %>%
@@ -27,8 +26,6 @@ most_pop_crime <- function(df_https) {
 
   return(crime_frequency)
 }
-seattle_data <-
-  vroom("https://data.seattle.gov/resource/tazs-3rd5.csv")
 
 
 #take a look at what types of crimes there are in the data set
