@@ -2,7 +2,7 @@ library(dplyr)
 library(ggplot2)
 
 #create a function to see how many crimes occur at different times of the day
-#uses hours 1-24
+#uses hours 0-23
 crime_times <- function(info) {
   df_https <- info
   get_count <- df_https %>%
