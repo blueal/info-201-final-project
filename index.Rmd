@@ -46,7 +46,7 @@ We will be using 3 data sets ([SPD Crime Data](https://data.seattle.gov/Public-S
 ## Average Delay in Report Time
 ### By Neighborhood
 This table groups the SPD Crime Data by neighborhoods (MCPP) and displays the
-average delay between crime occurrence to report filed in days (from 2008 - present). Insert insights.
+average delay between crime occurrence to report filed in days (from 2008 - present). The rows are ordered by descending report delay time. Total crime occurrences were included to give perspective on the frequency of crimes in a given neighborhood. Interestingly, the range in the neighborhood report delay time is not nearly as large as the offense delay time. This suggests that there are a variety of crimes in different areas; however, certain areas experience specific types of crime more than others (i.e. the range in delay time still exists--which vary with offense type).
 ```{r first table, out.width='100%', echo=FALSE}
 neighborhood_info <- by_neighborhood(seattle_data)
 kable(neighborhood_info) %>%
@@ -56,9 +56,7 @@ kable(neighborhood_info) %>%
 
 ### By Offense
 This table groups the SPD Crime Data by crime type (Offense) and displays the
-average delay between crime occurrence to report filed in days (from 2008 - present). This unveils the correlation between crime types (i.e. assault, etc.)
-& how long it takes people to submit reports, which gives light to the importance
-of statute of limitations. Insert varaibles for concrete insights.
+average delay between crime occurrence to report filed in days (from 2008 - present). This unveils the correlation between crime types (i.e. assault, etc.) & how long it takes people to submit reports. Total crime occurrences were included to give perspective on the frequency of a specific crime. The rows are ordered by descending report delay time. Out of the top 8 longest delay times, 6 of them were crimes involving sex. Understandably, this may occur because the victim and/or those knowing of the offense may need time to process/collect/feel safe enough to report the event. For instance, while incest only had 42 occurrences since 2008, the average report delay time was nearly 3 years.
 ``` {r second table, out.width='100%', echo=FALSE}
 offense_info <- by_offense(seattle_data)
 kable(offense_info) %>%
@@ -69,7 +67,8 @@ kable(offense_info) %>%
 ```{r insights, echo=FALSE}
 avg_delay <- avg_report_delay(offense_info)
 ```
-For all crime types, the difference in time between crime occurrence and report averaged to `r avg_delay`days.
+
+For all crime types, the difference in time between crime occurrence and report averaged to `r avg_delay`days. These two charts shed light on the lack of accuracy for immediate estimations of crime density (both by type and Seattle area). Specifically, crimes involving sexual offenses will most likely be under-reported & even if they are, potentially months or years after the offense takes place--making a fair prosecution difficult.
 
 ## Most Popular Criminal Type
 For this chart, we are trying to answer the question what crime type is the most popular. We decided to use a bar chart because it is the clearest way to display comparison between counts of data. It displays the type on the x axis and the count on the y axis. Therefore, we can easily trace each intersection and know that “Larceny-Theft” is the most popular crime in the Seattle area. The second most popular crime was "Destruction/Damage/Vandalism of Property"
