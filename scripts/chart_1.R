@@ -14,7 +14,6 @@ seattle_data <-
   vroom("https://data.seattle.gov/resource/tazs-3rd5.csv")
 
 
-
 #take a look at what types of crimes there are in the data set
 unique(seattle_data$offense_parent_group)
 

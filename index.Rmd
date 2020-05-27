@@ -1,10 +1,19 @@
 ---
-title: "index"
+title: "Midpoint Delivery"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(vroom)
+library(leaflet)
+library(knitr)
+
+seattle_data <- 
+    vroom("https://data.seattle.gov/resource/tazs-3rd5.csv")
 ```
 # Midpoint Deliverable
 ## Intro Paragraph 
@@ -18,4 +27,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Chart 2
 
 ## Chart 3
+```{r, echo = FALSE}
+source("scripts/chart_3.R")
+seattle_map(seattle_data)
+```
+
+
 
