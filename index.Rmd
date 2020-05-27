@@ -77,8 +77,8 @@ We also examined the average delay between the between when a crime starts, and 
 
 ## Average Delay in Report Time
 ### By Neighborhood
-This table groups the SPD Crime Data by neighborhoods (MCPP) and displays the
-average delay between crime occurrence to report filed in days (from 2008 - present). The rows are ordered by descending report delay time. Total crime occurrences were included to give perspective on the frequency of crimes in a given neighborhood. Interestingly, the range in the neighborhood report delay time is not nearly as large as the offense delay time. This suggests that there are a variety of crimes in different areas; however, certain areas experience specific types of crime more than others (i.e. the range in delay time still exists--which vary with offense type).
+This table groups the SPD Crime Data by neighborhoods (MCPP) and displays the average delay between crime occurrence to report filed in days (from 2008 - present). The rows are ordered by descending report delay time. Total crime occurrences were included to give perspective on the frequency of crimes in a given neighborhood. Interestingly, the range in the neighborhood report delay time is not nearly as large as the offense delay time. This suggests that there are a variety of crimes in different areas; however, certain areas experience specific types of crime more than others (i.e. the range in delay time still exists--which vary with offense type).
+
 ```{r first table, out.width='100%', echo=FALSE}
 neighborhood_info <- by_neighborhood(seattle_data)
 kable(neighborhood_info) %>%
@@ -87,8 +87,8 @@ kable(neighborhood_info) %>%
 ```
 
 ### By Offense
-This table groups the SPD Crime Data by crime type (Offense) and displays the
-average delay between crime occurrence to report filed in days (from 2008 - present). This unveils the correlation between crime types (i.e. assault, etc.) & how long it takes people to submit reports. Total crime occurrences were included to give perspective on the frequency of a specific crime. The rows are ordered by descending report delay time. Out of the top 8 longest delay times, 6 of them were crimes involving sex. Understandably, this may occur because the victim and/or those knowing of the offense may need time to process/collect/feel safe enough to report the event. For instance, while incest only had 42 occurrences since 2008, the average report delay time was nearly 3 years.
+This table groups the SPD Crime Data by crime type (Offense) and displays the average delay between crime occurrence to report filed in days (from 2008 - present).This unveils the correlation between crime types (i.e. assault, etc.) & how long it takes people to submit reports. Total crime occurrences were included to give perspective on the frequency of a specific crime. The rows are ordered by descending report delay time. Out of the top 8 longest delay times, 6 of them were crimes involving sex. Understandably, this may occur because the victim and/or those knowing of the offense may need time to process/collect/feel safe enough to report the event. For instance, while incest only had 42 occurrences since 2008, the average report delay time was nearly 3 years.
+
 ``` {r second table, out.width='100%', echo=FALSE}
 offense_info <- by_offense(seattle_data)
 kable(offense_info) %>%
