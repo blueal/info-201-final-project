@@ -23,6 +23,7 @@ source("scripts/table.R")
 source("scripts/chart_1.R")
 source("scripts/chart_2.R")
 source("scripts/chart_3.R")
+source("scripts/summary.R")
 ```
 
 ## Intro Paragraph 
@@ -42,6 +43,37 @@ We will be using 3 data sets ([SPD Crime Data](https://data.seattle.gov/Public-S
 * [911 Seattle Call Data](https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy): 911 call data is from the Data Analytics Platform (DAP) and is logged with the Seattle Police Department (SPD) Communications Center. It contains calls of police officers and observations of the field from within the community and is updated(upload) daily before a full refresh twice a year. Although the dataset is quite huge with 4.34 Million rows of data, we acknowledge our constraint as this dataset only includes records with police responses to the 911 call. 
 
 ## Summary Paragraph
+```{r summary, include=FALSE}
+summary_table <- get_summary_info(seattle_data)
+
+```
+The Seattle SPD data contains `r summary_table$columns` columns with `r summary_table$rows` rows of data. It is a very large dataset that contains almost every police incident starting in 2008. It breaks down Offenses into `r summary_table$offense_parent_types` parent types, with a total of `r summary_table$offense_types` unique offense types. Some interesting stats which we figured out from this dataset can include Safest/worst neighborhoods, and common offense types. We found that the average crimes per neighborhood throughout the city was `r format(summary_table$avg_crimes_per_neighborhood, scientific=FALSE)` per neighborhood overall. 
+
+### Safest Neighborhood
+1. `r summary_table$safest_neighborhoods$MCPP[1]`
+2. `r summary_table$safest_neighborhoods$MCPP[2]`
+3. `r summary_table$safest_neighborhoods$MCPP[3]`
+
+### Worst Neighborhood
+1. `r summary_table$badest_neighborhoods$MCPP[1]`
+2. `r summary_table$badest_neighborhoods$MCPP[2]`
+3. `r summary_table$badest_neighborhoods$MCPP[3]`
+
+
+Throughout the city we found a trend of the most common crimes, and surprising list of uncommon crimes as well.
+
+
+### Most Common Crimes
+1. `r summary_table$most_common_crimes$Offense[1]`
+2. `r summary_table$most_common_crimes$Offense[2]`
+3. `r summary_table$most_common_crimes$Offense[3]`
+
+### Least Common Crimes
+1. `r summary_table$least_common_crimes$Offense[1]`
+2. `r summary_table$least_common_crimes$Offense[2]`
+3. `r summary_table$least_common_crimes$Offense[3]`
+
+We also examined the average delay between the between when a crime starts, and when was stopped. We calculated this delay to be about `r summary_table$average_offense_time_days` days.
 
 ## Average Delay in Report Time
 ### By Neighborhood

@@ -1,4 +1,3 @@
-
 library(dplyr)
 
 # A function that takes in a dataset and returns a list of info about it:
@@ -27,7 +26,7 @@ get_summary_info <- function(dataset) {
     mutate(timediff = difftime(end, start, units = "days")) %>%
     summarise(avg = mean(timediff, na.rm = TRUE)) %>%
     as.numeric() %>%
-    round(digits = 2)
+    round(digits = 1)
   summary_info$avg_crimes_per_neighborhood <- dataset %>%
     group_by(MCPP) %>%
     summarise(count = n()) %>%
