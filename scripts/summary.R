@@ -1,4 +1,7 @@
 # A function that takes in a dataset and returns a list of info about it:
+#SPECIAL FIELDS:
+#safestNeighborhoods, badestNeighborhoods, MostCommonCrimes, LeastCommonCrimes
+#all of these fields return a 5 value list of the top items
 get_summary_info <- function(dataset){
   summary_info <- list()
   
