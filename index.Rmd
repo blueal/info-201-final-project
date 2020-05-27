@@ -6,11 +6,8 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-library(tidyr)
 library(dplyr)
-library(ggplot2)
 library(vroom)
-library(leaflet)
 library(knitr)
 library(kableExtra)
 

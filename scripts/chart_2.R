@@ -1,8 +1,5 @@
-library(tidyverse)
 library(dplyr)
 library(ggplot2)
-library(plotly)
-library(stringr)
 
 #create a function to see how many crimes occur at different times of the day
 #uses hours 1-24

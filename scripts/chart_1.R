@@ -1,9 +1,6 @@
-library(tidyverse)
 library(dplyr)
 library(ggplot2)
 library(evaluate)
-library(plotly)
-library(stringr)
 
 #Create a function to see which crimes are most popular
 most_pop_crime <- function(info) {
