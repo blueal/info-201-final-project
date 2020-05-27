@@ -26,16 +26,15 @@ source("scripts/summary.R")
 ## Intro Paragraph 
 Safety issues have always been in the spotlight, in the United States as strict gun regulations do not exist. And with the non-stop UW Alert messages reporting crimes, such as robberies and gun fires, safety has become one of the UW students' major concerns nowadays. Therefore, as a team, we decided to tie this project to our daily lives and analyze the pattern of crimes around our community - *Seattle*. 
 
-We will be using ([SPD Crime Data](https://data.seattle.gov/Public-Safety/SPD-Crime-Data-2008-Present/tazs-3rd5) as it provides crime data using the standardized crime classifications. However, due to the extreme size of the dataset, we've decided to take a portion of the orginal dataset and examine those data. In our analysis, we will be using columns such as offense start time, latitude & longitude, offense type, call-in resolution, etc., to help us answer these following questions:
+We will be using [SPD Crime Data](https://data.seattle.gov/Public-Safety/SPD-Crime-Data-2008-Present/tazs-3rd5) as it provides crime data using the standardized crime classifications. However, due to the extreme size of the dataset, we've decided to take a portion of the orginal dataset and examine those data. In our analysis, we will be using columns such as offense start time, latitude & longitude, offense type, call-in resolution, etc., to help us answer these following questions:
 
 * What areas have the highest density of crime? 
 * What types of crime? And in what areas?
 * What is the time of year or day for the offense, length of offense, report date?
 * What is the relationship between call-ins and arrests (i.e. resolution of call-ins)?
 
-#### Data Description
+#### Addtional Sources for the Future
 
-* [SPD Crime Data](https://data.seattle.gov/Public-Safety/SPD-Crime-Data-2008-Present/tazs-3rd5): This dataset provides crime data using the standardized crime classifications and is updated every twenty four hours.
 * [King County Sheriff's Office - Incident Dataset](https://data.kingcounty.gov/Law-Enforcement-Safety/King-County-Sheriff-s-Office-Incident-Dataset/rzfs-wyvy): This dataset contains instances of crime reported by King Country Sherrif office and another policing agency, e.g. SPD.
 * [911 Seattle Call Data](https://data.seattle.gov/Public-Safety/Call-Data/33kz-ixgy): 911 call data is from the Data Analytics Platform (DAP) and is logged with the Seattle Police Department (SPD) Communications Center. It contains calls of police officers and observations of the field from within the community and is updated(upload) daily before a full refresh twice a year. Although the dataset is quite huge with 4.34 Million rows of data, we acknowledge our constraint as this dataset only includes records with police responses to the 911 call. 
 
@@ -59,7 +58,6 @@ The Seattle SPD data contains `r summary_table$columns` columns with `r summary_
 
 Throughout the city we found a trend of the most common crimes, and surprising list of uncommon crimes as well.
 
-
 ### Most Common Crimes
 1. `r summary_table$most_common_crimes$Offense[1]`
 2. `r summary_table$most_common_crimes$Offense[2]`
@@ -73,6 +71,8 @@ Throughout the city we found a trend of the most common crimes, and surprising l
 We also examined the average delay between the between when a crime starts, and when was stopped. We calculated this delay to be about `r summary_table$average_offense_time_days` days.
 
 ## Average Delay in Report Time
+Both tables below are ordered by the their report delay time from the most the least delay.
+
 ### By Neighborhood
 This table groups the SPD Crime Data by neighborhoods (MCPP) and displays the average delay between crime occurrence to report filed in days (from 2008 - present). The rows are ordered by descending report delay time. Total crime occurrences were included to give perspective on the frequency of crimes in a given neighborhood. Interestingly, the range in the neighborhood report delay time is not nearly as large as the offense delay time. This suggests that there are a variety of crimes in different areas; however, certain areas experience specific types of crime more than others (i.e. the range in delay time still exists--which vary with offense type).
 
