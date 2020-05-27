@@ -76,15 +76,9 @@ For all crime types, the difference in time between crime occurrence and report 
 
 =======
 ## Most Popular Criminal Type
-<<<<<<< HEAD
 For this chart, we are trying to answer the question what crime type is the most popular. We decided to use a bar chart because it is the clearest way to display comparison between counts of data. It displays the type on the x axis and the count on the y axis. Therefore, we can easily trace each intersection and know that “Larceny-Theft” is the most popular crime in the Seattle area. The second most popular crime was "Destruction/Damage/Vandalism of Property"
 
 ```{r first chart, out.width='100%', echo=FALSE}
-=======
-For this chart, we are trying to answer the question what crime type is the most popular. We decided to use a bar chart because it is the clearest way to display comparison between counts of data. It displays the type on the x axis and the count on the y axis. Therefore, we can easily trace each intersection and know that “Larceny-Theft” is the most popular crime in the Seattle area.
->>>>>>> ad02c389eba19037de3520801171c9a215b0d70a
-```{r out.width='100%', echo=FALSE}
->>>>>>> 138e00fb6df02c63ce0cffbb1e0cb437ba58b45a
 most_pop_crime(seattle_data_two)
 ```
 
