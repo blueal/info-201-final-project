@@ -11,10 +11,11 @@ crime_times <- function(info) {
     mutate(count = 1)
   get_hours <- get_count %>%
     mutate(hour_of_day = substr(offense_start_datetime, 11, 13)) %>%
+    filter(hour_of_day != "NA") %>%
     group_by(hour_of_day) %>%
     summarise(total_offences_per_hour = sum(count))
   num_crimes_per_hour <- ggplot(get_hours) +
-    geom_col(mapping = aes(x = hour_of_day, y = total_offences_per_hour)) +
+    geom_point(mapping = aes(x = hour_of_day, y = total_offences_per_hour)) +
     ggtitle("Number of Crimes per Hour") +
     theme_bw() +
     ylab("Number of Offences") +
