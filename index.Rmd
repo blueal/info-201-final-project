@@ -66,6 +66,7 @@ kable(offense_info) %>%
   scroll_box(height = "500px")
 ```
 
+<<<<<<< HEAD
 ```{r insights, echo=FALSE}
 avg_delay <- avg_report_delay(offense_info)
 ```
@@ -73,18 +74,22 @@ For all crime types, the difference in time between crime occurrence and report 
 
 ## Chart 1
 
+=======
+## Most Popular Criminal Type
+For this chart, we are trying to answer the question what crime type is the most popular. We decided to use a bar chart because it is the clearest way to display comparison between counts of data. It displays the type on the x axis and the count on the y axis. Therefore, we can easily trace each intersection and know that “Larceny-Theft” is the most popular crime in the Seattle area.
+>>>>>>> ad02c389eba19037de3520801171c9a215b0d70a
 ```{r out.width='100%', echo=FALSE}
 most_pop_crime(seattle_data_two)
 ```
 
 ## Hour of Occurence
-
+Criminal activity can theoretically occur at any time of day. An aspect that we wanted to explore was what times is/are most popular for crimes to happen. The chart below collects and compares the total number of offences across each hour of the day (in army time). This data was graphed using a scatterplot to not only show differences on the number of offences, but to also observe any potential trends. Aside from the extreme outlier at 0 hours (12:00 AM), it seems that as the day gets darker, or as it approaches the 20s, there is a slight increase in criminal offenses than times early in the morning/afternoon.
 ```{r out.width='100%', echo=FALSE}
 crime_times(seattle_data_two)
 ```
 
 ## Visualization of Seattle's Criminal Activity
-One of the most important aspect of the "911 Seattle Call Data" is that it contains longitudinal and latitudinal numbers. With this information, we decided to create an interactive map to show the relative location of each criminal activity. This method offers a unique perspective on not only the location of each crime call, but also which 'offense' was committed, which area of Seattle had the highest density of calls/crimes, and  which 'criminal type' offense was done.
+One of the most important aspect of the "911 Seattle Call Data" is that it contains longitudinal and latitudinal numbers. With this information, we decided to create an interactive map to show the relative location of each criminal activity. This method offers a unique perspective on not only the location of each crime call, but also which 'offense' was committed, which area of Seattle had the highest density of calls/crimes, and  which 'criminal type' offense was done. Each point reveals information about the "Address", "Crime Type" and "Offense". Looking at the map, it appears that most of the offenses occurred within the N, E, and W precincts.
 
 ```{r out.width='100%', echo = FALSE}
 seattle_map(seattle_data_two)
