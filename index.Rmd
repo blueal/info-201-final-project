@@ -12,6 +12,7 @@ library(ggplot2)
 library(vroom)
 library(leaflet)
 library(knitr)
+library(kableExtra)
 
 seattle_data <- 
     vroom("https://data.seattle.gov/resource/tazs-3rd5.csv")
