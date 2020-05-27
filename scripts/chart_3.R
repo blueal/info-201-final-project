@@ -1,7 +1,6 @@
 library(tidyr)
 library(dplyr)
 library(ggplot2)
-library(vroom)
 library(leaflet)
 
 # Function to create interactive map
