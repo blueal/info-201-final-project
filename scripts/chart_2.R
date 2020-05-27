@@ -1,17 +1,12 @@
 library(tidyverse)
 library(dplyr)
-library(usmap)
-library(rworldmap)
 library(ggplot2)
 library(knitr)
-library(evaluate)
-library(mapproj)
 library(plotly)
 library(stringr)
 library(vroom)
-library(ggmap)
-library(maps)
-library(mapdata)
+
+
 
 crime_times <- function(df_https) {
   df_https <- vroom(df_https)

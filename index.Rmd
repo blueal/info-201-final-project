@@ -1,15 +1,11 @@
 ---
-<<<<<<< HEAD
-title: "Midpoint Delivery"
-=======
 title: "Midpoint Deliverable"
->>>>>>> eec010a4d039a6d3e2df921d54be3335ca571316
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-<<<<<<< HEAD
+
 library(tidyr)
 library(dplyr)
 library(ggplot2)
@@ -19,13 +15,11 @@ library(knitr)
 
 seattle_data <- 
     vroom("https://data.seattle.gov/resource/tazs-3rd5.csv")
-=======
-library(ggplot2)
-library(leaflet)
+
 source("scripts/chart_1.R")
 source("scripts/chart_2.R")
 source("scripts/chart_3.R")
->>>>>>> eec010a4d039a6d3e2df921d54be3335ca571316
+
 ```
 
 ## Intro Paragraph 
@@ -59,16 +53,8 @@ ggplotly(num_crimes_per_hour)
 ```
 
 ## Chart 3
-<<<<<<< HEAD
+
 ```{r, echo = FALSE}
-source("scripts/chart_3.R")
 seattle_map(seattle_data)
 ```
 
-
-
-=======
-```{r out.width='100%', echo=FALSE}
-seattle_map
-```
->>>>>>> eec010a4d039a6d3e2df921d54be3335ca571316
