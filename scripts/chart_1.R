@@ -18,6 +18,7 @@ most_pop_crime <- function(info) {
       x = offense_parent_group,
       y = total_by_type)) +
     theme_bw() +
+    #make text not overlap and make it smaller
     theme(axis.text.x = element_text(angle = 60, hjust = 1, size = 7)) +
     ggtitle("Which Crime Type is Most Popular?") +
     theme(legend.position = "none") +
