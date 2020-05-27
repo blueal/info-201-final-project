@@ -26,7 +26,7 @@ source("scripts/chart_3.R")
 ```
 
 ## Intro Paragraph 
-Safety issues have always been in the spotlight, in the United States as strict gun regulations do not exist. And with the non-stop UW Alert messages reporting crimes, such as robberies and gun fires, safety has become one of the UW students' major concerns nowadays. Therefore, as a team, we decided to tie this project to our daily lives and analyze the pattern of crimes around our community. 
+Safety issues have always been in the spotlight, in the United States as strict gun regulations do not exist. And with the non-stop UW Alert messages reporting crimes, such as robberies and gun fires, safety has become one of the UW students' major concerns nowadays. Therefore, as a team, we decided to tie this project to our daily lives and analyze the pattern of crimes around our community - *Seattle*. 
 
 We will be using ([SPD Crime Data](https://data.seattle.gov/Public-Safety/SPD-Crime-Data-2008-Present/tazs-3rd5) because it provides crime data using the standardized crime classifications. However, due to the extreme size of the dataset, we've decided to take a portion of the orginal dataset and examine those data by using vroom. We will be using offense start time, latitude & longitude, offense type, call-in resolution, etc., from this dataset to help us answer these following questions:
 
