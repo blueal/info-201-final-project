@@ -8,7 +8,7 @@ by_offense <- function(data) {
                                       `Offense Start DateTime`,
                                       units = "days")) %>%
     group_by(`Offense`) %>%
-    summarise(occurences = n(),
+    summarise(occurrences = n(),
               report_delay =
                 round(mean(time_difference, na.rm = TRUE), digits = 2)) %>%
     arrange(-report_delay)
@@ -23,15 +23,26 @@ by_neighborhood <- function(data) {
                                       `Offense Start DateTime`,
                                       units = "days")) %>%
     group_by(`MCPP`) %>%
-    summarise(occurences = n(),
+    summarise(occurrences = n(),
               report_delay =
                 round(mean(time_difference, na.rm = TRUE), digits = 2)) %>%
     arrange(-report_delay)
   return(by_neighborhood)
 }
 
-# renders tables & relevant info
-# neighborhood_info <- by_neighborhood(seattle_data)
+# total average report delay in days
+avg_report_delay <- function(table) {
+  info <- table %>%
+    mutate(total_time = report_delay * occurrences) %>%
+    summarise(avg_report_delay = round(sum(total_time) /
+                                         sum(occurrences), digits = 2)) %>%
+    pull()
+  return(info)
+}
+
+
+# relevant info by neighborhood & offense
+
 # max_n <- neighborhood_info %>%
 #   filter(report_delay == max(report_delay, na.rm = TRUE))
 # min_n <- neighborhood_info %>%
@@ -40,8 +51,7 @@ by_neighborhood <- function(data) {
 # min_time_n <- round(pull(min_n, report_delay), digits = 2) # in days
 # max_neighborhood <- pull(max_n, `MCPP`) # area with largest delay
 # min_neighborhood <- pull(min_n, `MCPP`) # area with smallest delay
-# 
-# offense_info <- by_offense(seattle_data)
+
 # max_o <- offense_info %>%
 #   filter(report_delay == max(report_delay, na.rm = TRUE))
 # min_o <- offense_info %>%
@@ -50,10 +60,3 @@ by_neighborhood <- function(data) {
 # min_time_o <- round(pull(min_o, report_delay), digits = 2) # in days
 # max_offense <- pull(max_o, `Offense`) # offense with largest delay
 # min_offense <- pull(min_o, `Offense`) # offense with smallest delay
-# 
-# # total average report delay in days
-# avg_report_delay <- offense_info %>%
-#   mutate(total_time = report_delay * occurences) %>%
-#   summarise(avg_report_delay = round(sum(total_time) /
-#                                        sum(occurences), digits = 2)) %>%
-#   pull()
