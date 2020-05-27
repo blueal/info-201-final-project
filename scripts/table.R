@@ -3,7 +3,7 @@ library(vroom)
 
 seattle_data <- vroom("https://data.seattle.gov/api/views/tazs-3rd5/rows.csv")
 
-# function that returns table to relate avg report delay (hrs) to each
+# function that returns table to relate avg report delay (days) to each
 # type of offense
 by_offense <- function(data) {
   by_offense <- data %>%
@@ -18,7 +18,7 @@ by_offense <- function(data) {
   return(by_offense)
 }
 
-# function that returns table to relate avg report delay (hrs) to
+# function that returns table to relate avg report delay (days) to
 # each neighborhood
 by_neighborhood <- function(data) {
   by_neighborhood <- data %>%
