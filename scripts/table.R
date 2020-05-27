@@ -1,7 +1,4 @@
 library(dplyr)
-library(vroom)
-
-seattle_data <- vroom("https://data.seattle.gov/api/views/tazs-3rd5/rows.csv")
 
 # function that returns table to relate avg report delay (days) to each
 # type of offense
@@ -34,29 +31,29 @@ by_neighborhood <- function(data) {
 }
 
 # renders tables & relevant info
-neighborhood_info <- by_neighborhood(seattle_data)
-max_n <- neighborhood_info %>%
-  filter(report_delay == max(report_delay, na.rm = TRUE))
-min_n <- neighborhood_info %>%
-  filter(report_delay == min(report_delay, na.rm = TRUE))
-max_time_n <- round(pull(max_n, report_delay), digits = 2) # in days
-min_time_n <- round(pull(min_n, report_delay), digits = 2) # in days
-max_neighborhood <- pull(max_n, `MCPP`) # area with largest delay
-min_neighborhood <- pull(min_n, `MCPP`) # area with smallest delay
-
-offense_info <- by_offense(seattle_data)
-max_o <- offense_info %>%
-  filter(report_delay == max(report_delay, na.rm = TRUE))
-min_o <- offense_info %>%
-  filter(report_delay == min(report_delay, na.rm = TRUE))
-max_time_o <- round(pull(max_o, report_delay), digits = 2) # in days
-min_time_o <- round(pull(min_o, report_delay), digits = 2) # in days
-max_offense <- pull(max_o, `Offense`) # offense with largest delay
-min_offense <- pull(min_o, `Offense`) # offense with smallest delay
-
-# total average report delay in days
-avg_report_delay <- offense_info %>%
-  mutate(total_time = report_delay * occurences) %>%
-  summarise(avg_report_delay = round(sum(total_time) /
-                                       sum(occurences), digits = 2)) %>%
-  pull()
+# neighborhood_info <- by_neighborhood(seattle_data)
+# max_n <- neighborhood_info %>%
+#   filter(report_delay == max(report_delay, na.rm = TRUE))
+# min_n <- neighborhood_info %>%
+#   filter(report_delay == min(report_delay, na.rm = TRUE))
+# max_time_n <- round(pull(max_n, report_delay), digits = 2) # in days
+# min_time_n <- round(pull(min_n, report_delay), digits = 2) # in days
+# max_neighborhood <- pull(max_n, `MCPP`) # area with largest delay
+# min_neighborhood <- pull(min_n, `MCPP`) # area with smallest delay
+# 
+# offense_info <- by_offense(seattle_data)
+# max_o <- offense_info %>%
+#   filter(report_delay == max(report_delay, na.rm = TRUE))
+# min_o <- offense_info %>%
+#   filter(report_delay == min(report_delay, na.rm = TRUE))
+# max_time_o <- round(pull(max_o, report_delay), digits = 2) # in days
+# min_time_o <- round(pull(min_o, report_delay), digits = 2) # in days
+# max_offense <- pull(max_o, `Offense`) # offense with largest delay
+# min_offense <- pull(min_o, `Offense`) # offense with smallest delay
+# 
+# # total average report delay in days
+# avg_report_delay <- offense_info %>%
+#   mutate(total_time = report_delay * occurences) %>%
+#   summarise(avg_report_delay = round(sum(total_time) /
+#                                        sum(occurences), digits = 2)) %>%
+#   pull()

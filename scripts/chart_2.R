@@ -1,10 +1,8 @@
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
-library(knitr)
 library(plotly)
 library(stringr)
-library(vroom)
 
 #create a function to see how many crimes occur at different times of the day
 crime_times <- function(info) {
@@ -25,4 +23,3 @@ crime_times <- function(info) {
   return(num_crimes_per_hour)
 }
 
-crime_times("https://data.seattle.gov/resource/tazs-3rd5.csv")

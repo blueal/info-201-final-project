@@ -1,7 +1,6 @@
 library(tidyr)
 library(dplyr)
 library(ggplot2)
-library(vroom)
 library(leaflet)
 
 # Function to create interactive map
@@ -15,7 +14,7 @@ seattle_map <- function(info) {
       `_100_block_address`,
       latitude,
       longitude) %>%
-    filter(latitude != 0) %>%
+    filter(latitude != "0E-9") %>%
     mutate(
       latitude = as.numeric(latitude),
       longitude = as.numeric(longitude)
