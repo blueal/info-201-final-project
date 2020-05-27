@@ -12,13 +12,14 @@ seattle_map <- function(info) {
       offense,
       `_100_block_address`,
       latitude,
-      longitude) %>%
+      longitude
+    ) %>%
     filter(latitude != "0E-9") %>%
     mutate(
       latitude = as.numeric(latitude),
       longitude = as.numeric(longitude)
-      )
-# Creates a description for the points on the map
+    )
+  # Creates a description for the points on the map
   description <- paste0(
     "<b>Address: </b>", filter_data$`_100_block_address`,
     "<br/>",
@@ -26,19 +27,19 @@ seattle_map <- function(info) {
     "<br/>",
     "<b>Offense: </b>", filter_data$offense
   )
-# Creates a color palette based on the "precinct" column
+  # Creates a color palette based on the "precinct" column
   pal <- colorFactor(
     palette = "Spectral",
     domain = filter_data$precinct
   )
-# Creates interactive map using variables listed above
+  # Creates interactive map using variables listed above
   seattle <- leaflet(filter_data) %>%
     addTiles() %>%
     addCircles(
       lng = ~longitude,
       lat = ~latitude,
       popup = ~description,
-      color = ~pal(precinct),
+      color = ~ pal(precinct),
       radius = 25,
       opacity = 50
     ) %>%
@@ -48,5 +49,5 @@ seattle_map <- function(info) {
       values = ~precinct,
       title = "Precinct of Crimes"
     )
-  return(seattle) #Returns the map
+  return(seattle) # Returns the map
 }
