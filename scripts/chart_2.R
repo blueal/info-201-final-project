@@ -6,8 +6,6 @@ library(plotly)
 library(stringr)
 library(vroom)
 
-
-
 crime_times <- function(df_https) {
   df_https <- vroom(df_https)
   get_count <- df_https %>%
@@ -25,11 +23,6 @@ crime_times <- function(df_https) {
 
   return(num_crimes_per_hour)
 }
-
-
-seattle_data <-
-  vroom("https://data.seattle.gov/resource/tazs-3rd5.csv")
-
 
 # The objective of this file is to find out which times of days crimes occured
 # the most

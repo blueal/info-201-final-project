@@ -11,7 +11,7 @@ by_offense <- function(data) {
                                       `Offense Start DateTime`,
                                       units = "days")) %>%
     group_by(`Offense`) %>%
-    summarise(occurances = n(),
+    summarise(occurences = n(),
               report_delay =
                 round(mean(time_difference, na.rm = TRUE), digits = 2)) %>%
     arrange(-report_delay)
@@ -26,7 +26,7 @@ by_neighborhood <- function(data) {
                                       `Offense Start DateTime`,
                                       units = "days")) %>%
     group_by(`MCPP`) %>%
-    summarise(occurances = n(),
+    summarise(occurences = n(),
               report_delay =
                 round(mean(time_difference, na.rm = TRUE), digits = 2)) %>%
     arrange(-report_delay)
@@ -56,7 +56,7 @@ min_offense <- pull(min_o, `Offense`) # offense with smallest delay
 
 # total average report delay in days
 avg_report_delay <- offense_info %>%
-  mutate(total_time = report_delay * occurances) %>%
-  summarise(avg_report_delay = round((sum(total_time)
-                                      / sum(occurances)), digits = 2)) %>%
+  mutate(total_time = report_delay * occurences) %>%
+  summarise(avg_report_delay = round(sum(total_time) /
+                                       sum(occurences), digits = 2)) %>%
   pull()
