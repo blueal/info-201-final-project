@@ -1,5 +1,4 @@
-my_data <- 
-  vroom("https://data.seattle.gov/api/views/tazs-3rd5/rows.csv")
+library(dplyr)
 
 # A function that takes in a dataset and returns a list of info about it:
 get_summary_info <- function(dataset){
@@ -49,5 +48,3 @@ get_summary_info <- function(dataset){
   
   return(summary_info)
 }
-
-testsummary <- get_summary_info(my_data)

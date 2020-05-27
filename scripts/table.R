@@ -40,7 +40,6 @@ avg_report_delay <- function(table) {
   return(info)
 }
 
-
 # relevant info by neighborhood & offense
 
 # max_n <- neighborhood_info %>%
