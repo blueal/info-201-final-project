@@ -18,9 +18,9 @@ seattle_data <-
     vroom("https://data.seattle.gov/api/views/tazs-3rd5/rows.csv")
 
 source("scripts/table.R")
-source("scripts/chart_1.R")
-source("scripts/chart_2.R")
-source("scripts/chart_3.R")
+#source("scripts/chart_1.R")
+#source("scripts/chart_2.R")
+#source("scripts/chart_3.R")
 ```
 
 ## Intro Paragraph 
@@ -41,12 +41,24 @@ We will be using 3 data sets ([SPD Crime Data](https://data.seattle.gov/Public-S
 
 ## Summary Paragraph
 
-## Table
-9 variables of interest in table.R file that point out interesting information
-```{r out.width='100%', echo=FALSE}
+## Average Delay in Report Time
+### By Neighborhood
+This table groups the SPD Crime Data by neighborhoods (MCPP) and displays the
+average delay between crime occurence to report filed in days (from 2008 - present). Insert insights.
+```{r first table, out.width='100%', echo=FALSE}
+neighborhood_info <- by_neighborhood(seattle_data)
 kable(neighborhood_info) %>%
   kable_styling(bootstrap_options = c("striped", "hover")) %>%
   scroll_box(height = "500px")
+```
+
+### By Offense
+This table groups the SPD Crime Data by crime type (Offense) and displays the
+average delay between crime occurence to report filed in days (from 2008 - present). This unveils the correlation between crime types (i.e. assault, etc.)
+& how long it takes people to submit reports, which gives light to the importance
+of statute of limitations. Insert varaibles for concrete insights.
+``` {r second table, out.width='100%', echo=FALSE}
+offense_info <- by_offense(seattle_data)
 kable(offense_info) %>%
   kable_styling(bootstrap_options = c("striped", "hover")) %>%
   scroll_box(height = "500px")
@@ -54,19 +66,19 @@ kable(offense_info) %>%
 
 ## Chart 1
 ```{r out.width='100%', echo=FALSE}
-most_pop_crime(seattle_data)
+#most_pop_crime(seattle_data)
 ```
 
 ## Hour of Occurence
 
 ```{r out.width='100%', echo=FALSE}
-ggplotly(num_crimes_per_hour)
+#ggplotly(num_crimes_per_hour)
 ```
 
 ## Visualization of Seattle's Criminal Activity
 One of the most important aspect of the "911 Seattle Call Data" is that it contains longitudinal and latitudinal numbers. With this information, we decided to create an interactive map to show the relative location of each criminal activity. This method offers a unique perspective on not only the location of each crime call, but also which 'offense' was committed, which area of Seattle had the highest density of calls/crimes, and  which 'criminal type' offense was done.
 
 ```{r out.width='100%', echo = FALSE}
-seattle_map(seattle_data)
+#seattle_map(seattle_data)
 ```
 
