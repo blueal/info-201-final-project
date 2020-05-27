@@ -23,4 +23,3 @@ crime_times <- function(info) {
 
   return(num_crimes_per_hour)
 }
-
