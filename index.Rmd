@@ -66,18 +66,14 @@ kable(offense_info) %>%
   scroll_box(height = "500px")
 ```
 
-<<<<<<< HEAD
 ```{r insights, echo=FALSE}
 avg_delay <- avg_report_delay(offense_info)
 ```
 For all crime types, the difference in time between crime occurrence and report averaged to `r avg_delay`days.
 
-## Chart 1
-
-=======
 ## Most Popular Criminal Type
 For this chart, we are trying to answer the question what crime type is the most popular. We decided to use a bar chart because it is the clearest way to display comparison between counts of data. It displays the type on the x axis and the count on the y axis. Therefore, we can easily trace each intersection and know that “Larceny-Theft” is the most popular crime in the Seattle area.
->>>>>>> ad02c389eba19037de3520801171c9a215b0d70a
+
 ```{r out.width='100%', echo=FALSE}
 most_pop_crime(seattle_data_two)
 ```
