@@ -1,6 +1,3 @@
-my_data <- 
-  vroom("https://data.seattle.gov/api/views/tazs-3rd5/rows.csv")
-
 # A function that takes in a dataset and returns a list of info about it:
 get_summary_info <- function(dataset){
   summary_info <- list()
@@ -32,22 +29,34 @@ get_summary_info <- function(dataset){
     summarise(avg = mean(count, na.rm = TRUE)) %>%
     as.numeric() %>%
     round(digits = 0)
-  summary_info$safestNeighborhood = dataset %>%
+  summary_info$safestNeighborhoods = dataset %>%
     group_by(MCPP) %>%
     summarise(count = n()) %>%
     arrange(count) %>%
-    head(1) %>%
+    head(5) %>%
     select(MCPP) %>%
-    toString()
-  summary_info$badestNeighborhood = dataset %>%
+    as.list()
+  summary_info$badestNeighborhoods = dataset %>%
     group_by(MCPP) %>%
     summarise(count = n()) %>%
     arrange(desc(count)) %>%
-    head(1) %>%
+    head(5) %>%
     select(MCPP) %>%
-    toString()
+    as.list()
+  summary_info$MostCommonCrimes = dataset %>%
+    group_by(Offense) %>%
+    summarise(count = n()) %>%
+    arrange(desc(count)) %>%
+    head(5) %>%
+    select(Offense) %>%
+    as.list()
+  summary_info$LeastCommonCrimes = dataset %>%
+    group_by(Offense) %>%
+    summarise(count = n()) %>%
+    arrange(count) %>%
+    head(5) %>%
+    select(Offense) %>%
+    as.list()
   
   return(summary_info)
 }
-
-testsummary <- get_summary_info(my_data)
