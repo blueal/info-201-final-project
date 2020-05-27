@@ -12,6 +12,7 @@ library(ggplot2)
 library(vroom)
 library(leaflet)
 library(knitr)
+library(kableExtra)
 
 seattle_data <- 
     vroom("https://data.seattle.gov/resource/tazs-3rd5.csv")
@@ -19,7 +20,7 @@ seattle_data <-
 source("scripts/chart_1.R")
 source("scripts/chart_2.R")
 source("scripts/chart_3.R")
-
+source("scripts/table.R")
 ```
 
 ## Intro Paragraph 
@@ -41,6 +42,15 @@ We will be using 3 data sets ([SPD Crime Data](https://data.seattle.gov/Public-S
 ## Summary Paragraph
 
 ## Table
+9 variables of interest in table.R file that point out interesting information
+```{r out.width='100%', echo=FALSE}
+kable(neighborhood_info) %>%
+  kable_styling(bootstrap_options = c("striped", "hover")) %>%
+  scroll_box(height = "500px")
+kable(offense_info) %>%
+  kable_styling(bootstrap_options = c("striped", "hover")) %>%
+  scroll_box(height = "500px")
+```
 
 ## Chart 1
 ```{r out.width='100%', echo=FALSE}
