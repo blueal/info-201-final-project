@@ -20,7 +20,7 @@ most_pop_crime <- function(info) {
       x = offense_parent_group,
       y = total_by_type)) +
     theme_bw() +
-    theme(axis.text.x = element_text(angle = 60, hjust = 1)) +
+    theme(axis.text.x = element_text(angle = 60, hjust = 1, size = 5)) +
     ggtitle("Which Crime Type is Most Popular?") +
     theme(legend.position = "none") +
     ylab("Number of Occurrences") +
