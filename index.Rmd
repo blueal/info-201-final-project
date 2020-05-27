@@ -66,8 +66,8 @@ kable(offense_info) %>%
   scroll_box(height = "500px")
 ```
 
-## Chart 1
-
+## Most Popular Criminal Type
+For this chart, we are trying to answer the question what crime type is the most popular. We decided to use a bar chart because it is the clearest way to display comparison between counts of data. It displays the type on the x axis and the count on the y axis. Therefore, we can easily trace each intersection and know that “Larceny-Theft” is the most popular crime in the Seattle area.
 ```{r out.width='100%', echo=FALSE}
 most_pop_crime(seattle_data_two)
 ```
