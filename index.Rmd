@@ -67,6 +67,7 @@ kable(offense_info) %>%
 ```
 
 ## Chart 1
+
 ```{r out.width='100%', echo=FALSE}
 most_pop_crime(seattle_data_two)
 ```
