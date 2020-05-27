@@ -11,7 +11,7 @@ by_offense <- function(data) {
                                       offense_start_datetime,
                                       units = "hours")) %>%
     group_by(offense) %>%
-    summarise(occurances = n(),
+    summarise(occurences = n(),
               report_delay =
                 round(mean(time_difference, na.rm = TRUE), digits = 2)) %>%
     arrange(-report_delay)
@@ -58,5 +58,5 @@ offense_info <- by_offense(seattle_data)
 avg_report_delay <- offense_info %>%
   mutate(total_time = report_delay * occurences) %>%
   summarise(avg_report_delay = round((sum(total_time)
-                                      / sum(occurances)) / 24, digits = 2)) %>%
+                                      / sum(occurences)) / 24, digits = 2)) %>%
   pull()

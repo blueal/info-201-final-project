@@ -6,15 +6,16 @@ library(leaflet)
 
 # Function to create interactive map
 # Filters the dataset for specific columns
-seattle_map <- function(data_frame) {
-  filter_data <- data_frame %>%
+seattle_map <- function(info) {
+  filter_data <- info %>%
     select(
       crime_against_category,
       precinct,
-      offense, `_100_block_address`,
+      offense,
+      `_100_block_address`,
       latitude,
       longitude) %>%
-    filter(latitude != "0E-9") %>%
+    filter(latitude != 0) %>%
     mutate(
       latitude = as.numeric(latitude),
       longitude = as.numeric(longitude)

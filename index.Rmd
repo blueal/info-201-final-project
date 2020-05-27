@@ -15,7 +15,7 @@ library(knitr)
 library(kableExtra)
 
 seattle_data <- 
-    vroom("https://data.seattle.gov/resource/tazs-3rd5.csv")
+    vroom("https://data.seattle.gov/api/views/tazs-3rd5/rows.csv")
 
 source("scripts/table.R")
 source("scripts/chart_1.R")
@@ -54,10 +54,11 @@ kable(offense_info) %>%
 
 ## Chart 1
 ```{r out.width='100%', echo=FALSE}
-ggplotly(crime_frequency)
+most_pop_crime(seattle_data)
 ```
 
-## Chart 2
+## Hour of Occurence
+
 ```{r out.width='100%', echo=FALSE}
 ggplotly(num_crimes_per_hour)
 ```
