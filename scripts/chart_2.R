@@ -25,4 +25,3 @@ crime_times <- function(info) {
   return(num_crimes_per_hour)
 }
 
-crime_times("https://data.seattle.gov/resource/tazs-3rd5.csv")
