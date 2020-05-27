@@ -89,7 +89,7 @@ crime_times(seattle_data_two)
 ```
 
 ## Visualization of Seattle's Criminal Activity
-One of the most important aspect of the "911 Seattle Call Data" is that it contains longitudinal and latitudinal numbers. With this information, we decided to create an interactive map to show the relative location of each criminal activity. This method offers a unique perspective on not only the location of each crime call, but also which 'offense' was committed, which area of Seattle had the highest density of calls/crimes, and  which 'criminal type' offense was done. Each point reveals information about the "Address", "Crime Type" and "Offense". Looking at the map, it appears that most of the offenses occurred within the N, E, and W precincts.
+One of the most important aspect of the "911 Seattle Call Data" is that it contains longitudinal and latitudinal numbers. With this information, we decided to create an interactive map to show the relative location of each criminal activity. This method offers a unique perspective on not only the location of each crime call, but also which 'offense' was committed, which area of Seattle had the highest density of calls/crimes, and  which 'criminal type' offense was done. Each point reveals information about the "Address", "Crime Type" and "Offense". Looking at the map, it appears that most of the offenses occurred within the N, E, and W precinct, with fewer occurences in precincts S and SW.
 
 ```{r third chart, out.width='100%', echo = FALSE}
 seattle_map(seattle_data_two)
