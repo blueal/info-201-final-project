@@ -11,7 +11,7 @@ by_offense <- function(data) {
     summarise(occurrences = n(),
               report_delay =
                 round(mean(time_difference, na.rm = TRUE), digits = 2)) %>%
-    arrange(-report_delay)
+    arrange(-report_delay) # deliberate ordering
   return(by_offense)
 }
 
@@ -26,11 +26,11 @@ by_neighborhood <- function(data) {
     summarise(occurrences = n(),
               report_delay =
                 round(mean(time_difference, na.rm = TRUE), digits = 2)) %>%
-    arrange(-report_delay)
+    arrange(-report_delay) # deliberate ordering
   return(by_neighborhood)
 }
 
-# total average report delay in days
+# function for total average report delay in days
 avg_report_delay <- function(table) {
   info <- table %>%
     mutate(total_time = report_delay * occurrences) %>%
