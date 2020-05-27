@@ -14,10 +14,10 @@ library(leaflet)
 library(knitr)
 library(kableExtra)
 
-seattle_data <- 
+seattle_data <-
     vroom("https://data.seattle.gov/api/views/tazs-3rd5/rows.csv")
 seattle_data_two <-
-  vroom('https://data.seattle.gov/resource/tazs-3rd5.csv')
+  vroom("https://data.seattle.gov/resource/tazs-3rd5.csv")
 
 source("scripts/table.R")
 source("scripts/chart_1.R")
