@@ -5,6 +5,7 @@ library(plotly)
 library(stringr)
 
 #create a function to see how many crimes occur at different times of the day
+#uses hours 1-24
 crime_times <- function(info) {
   df_https <- info
   get_count <- df_https %>%
