@@ -1,2 +1,13 @@
+library(shiny)
+library(ggplot2)
+library(tidyr)
+library(leaflet)
+library(vroom)
+library(dplyr)
+library(styler)
+library(RColorBrewer)
+
+source("app_ui.R")
+source("app_server.R")
 # Creates shiny application using "ui" and "server"
 shinyApp(ui = ui, server = server)
