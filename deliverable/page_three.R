@@ -11,7 +11,7 @@ get_hours <- get_count %>%
   group_by(hour_of_day)
 
 time_page <- tabPanel(
-  "When do certain crimes happen?",
+  "Crime Type vs. Time of Day Activity",
   p("In this section, the Seattle Data set will be used to indentify and show
     what crimes occurr at certain times of the day"),
   p("To begin select a crime of your choice in the drop down menu below"),
