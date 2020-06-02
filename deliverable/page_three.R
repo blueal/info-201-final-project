@@ -14,11 +14,11 @@ time_page <- tabPanel(
   "When do certain crimes happen?",
   p("In this section, the Seattle Data set will be used to indentify and show
     what crimes occurr at certain times of the day"),
+  p("To begin select a crime of your choice in the drop down menu below"),
   sidebarPanel(
     selectInput(inputId = "type_of_crime",
               label = "Type of Crime",
-              choices = c(get_hours$`Offense Parent Group`),
-              selected = TRUE)
+              choices = c(get_hours$`Offense Parent Group`))
   ),
   mainPanel(
     plotOutput(outputId = "barchart")
