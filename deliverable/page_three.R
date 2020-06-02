@@ -17,7 +17,8 @@ time_page <- tabPanel(
   sidebarPanel(
     selectInput(inputId = "type_of_crime",
               label = "Type of Crime",
-              choices = c(get_hours$`Offense Parent Group`))
+              choices = c(get_hours$`Offense Parent Group`),
+              selected = TRUE)
   ),
   mainPanel(
     plotOutput(outputId = "barchart")
