@@ -11,7 +11,26 @@ get_hours <- get_count %>%
   group_by(hour_of_day) %>%
   summarise(total_offences_per_hour = sum(count))
 
-hours_at_crime
+hours_at_crime <- seattle_data %>%
+  mutate(hour_of_day = substr(offense_start_datetime, 11, 13)) %>%
+  filter(hour_of_day != "NA") %>% 
+  select(hour_of_day, offense_parent_group) %>% 
+  group_by(hour_of_day) %>% 
+  summarise(n_distinct(offense_parent_group))
+
+time_page <- tabPanel(
+  "When do crimes happen?",
+  p("In this section, the Seattle Data set will be used to indentify and show
+    how many crimes occure at different hours of the day"),
+  sidebarPanel(
+    selectInput(inputId = "type_of_crime",
+              label = "Type of Crime",
+              choices = get_hours$hour_of_day)
+  ),
+  mainPanel(
+    plotOutput(outputId = "barchart")
+  )
+)
 
 num_crimes_per_hour <- ggplot(get_hours) +
   # set points

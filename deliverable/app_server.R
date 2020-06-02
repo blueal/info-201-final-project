@@ -44,4 +44,18 @@ server <- function (input, output) {
         values = ~precinct)
     } 
   })
+  
+  output$barchart <- renderPlot({
+      ggplot(get_hours) +
+      # set points
+      geom_col(mapping = aes(x = hour_of_day, y = total_offences_per_hour)) +
+      # add plot title
+      ggtitle("Number of Crimes per Hour") +
+      # set white background
+      theme_minimal() +
+      # set y-axis title
+      ylab("Number of Offences") +
+      # set x-axis title
+      xlab("Hour of Day")
+  })
 }
