@@ -45,14 +45,9 @@ server <- function (input, output) {
     } 
   })
   
- # datsetInput <- reactive({
-#    switch(input$dataset,
-#           "Theft" = 	seattle_data$LARCENY-THEFT)
-#  })
-  
   output$barchart <- renderPlot({
       get_hours %>%
-      filter(offense_parent_group == input$type_of_crime) %>% 
+      filter(`Offense Parent Group` == input$type_of_crime) %>% 
       summarise(total_offences_per_hour = sum(count)) %>% 
       ggplot() +
       # set points
