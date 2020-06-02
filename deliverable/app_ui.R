@@ -9,6 +9,7 @@ ui <- fluidPage(
     "Tabs",
     overview,
     map_page,
+    time_page,
     summary_info
   )
 )

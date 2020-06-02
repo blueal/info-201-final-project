@@ -44,4 +44,26 @@ server <- function (input, output) {
         values = ~precinct)
     } 
   })
+  
+ # datsetInput <- reactive({
+#    switch(input$dataset,
+#           "Theft" = 	seattle_data$LARCENY-THEFT)
+#  })
+  
+  output$barchart <- renderPlot({
+      get_hours %>%
+      filter(offense_parent_group == input$type_of_crime) %>% 
+      summarise(total_offences_per_hour = sum(count)) %>% 
+      ggplot() +
+      # set points
+      geom_col(mapping = aes(x = hour_of_day, y = total_offences_per_hour)) +
+      # add plot title
+      ggtitle("Number of Crimes per Hour") +
+      # set white background
+      theme_minimal() +
+      # set y-axis title
+      ylab("Number of Offences") +
+      # set x-axis title
+      xlab("Hour of Day")
+  })
 }
