@@ -4,15 +4,26 @@ seattle_data <-
 
 location <- seattle_data %>%
   select(
+    crime_against_category,
+    precinct,
+    offense,
+    `_100_block_address`,
     latitude,
     longitude,
-    precinct
   ) %>%
   filter(latitude != "0E-9") %>%
   mutate(
     Latitude = as.numeric(latitude),
     Longitude = as.numeric(longitude)
   )
+
+description <- paste0(
+  "<b>Address: </b>", seattle_data$`_100_block_address`,
+  "<br/>",
+  "<b>Crime Type: </b>", seattle_data$crime_against_category,
+  "<br/>",
+  "<b>Offense: </b>", seattle_data$offense
+)
 
 map_page <- tabPanel(
   "Mapping Criminal Activity",
@@ -27,6 +38,11 @@ map_page <- tabPanel(
         "colors",
         "Color Scheme",
         rownames(subset(brewer.pal.info, category %in% c("seq", "div")))
+      ),
+      selectInput(
+        "key",
+        "Key",
+        choices = colnames(location[1:2])
       ),
       checkboxInput(
         inputId = "legend",

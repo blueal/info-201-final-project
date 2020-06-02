@@ -27,10 +27,12 @@ server <- function (input, output) {
         lat = ~Latitude,
         lng = ~Longitude,
         color = ~pal(precinct),
-        fillOpacity = 0.7
+        fillOpacity = 0.7,
+        popup = ~description,
+        radius = 25
       )
   })
-  
+
   # Responds to user's input about displaying the 
   # legend
   observe({
