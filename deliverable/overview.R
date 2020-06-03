@@ -1,3 +1,4 @@
 overview <- tabPanel(
-  "Overview"
+  "Overview",
+  p("Beginning of the Intro paragraph")
 )
