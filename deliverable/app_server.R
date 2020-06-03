@@ -65,6 +65,42 @@ server <- function (input, output) {
       xlab("Hour of Day")
   })
   
+  output$neghborhood_bar_chart <- renderPlot({
+    bar_graph <- ggplot(neighborhood_crime,
+                        aes(x=
+                              reorder(
+                                str_wrap(
+                                  MCPP, 15),
+                                -count),
+                            y=count)
+                        ) +
+      geom_col() +
+      theme(axis.text.x=element_text(angle=90,
+                                     hjust=1,
+                                     vjust=0.5)
+            ) +
+      labs(y= "Crime Count", x = "Offense Type")
+    bar_graph
+  })
+  
+  output$types_bar_chart <- renderPlot({
+    bar_graph <- ggplot(types_of_crime,
+                        aes(x=
+                              reorder(
+                                str_wrap(
+                                  Offense, 15),
+                                -count),
+                            y=count)
+    ) +
+      geom_col() +
+      theme(axis.text.x=element_text(angle=90,
+                                     hjust=1,
+                                     vjust=0.5)
+      ) +
+      labs(y= "Crime Count", x = "Neighborhood")
+    bar_graph
+  })
+  
   output$bar <- renderPlot({
     p <- ggplot(data_with_count, aes(y=count,
                                      x=.data[[input$x_var]],

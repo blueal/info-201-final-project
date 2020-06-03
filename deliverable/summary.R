@@ -1,13 +1,126 @@
-summary_info <- tabPanel(
-  "Summary"
-)
 
-main <- mainPanel(
+library(dplyr)
+
+seattle_data <- vroom("https://data.seattle.gov/api/views/tazs-3rd5/rows.csv")
+
+# A function that takes in a dataset and returns a list of info about it:
+# SPECIAL FIELDS:
+# safestNeighborhoods, badestNeighborhoods, MostCommonCrimes, LeastCommonCrimes
+# all of these fields return a 5 value list of the top items
+get_summary_info <- function(dataset) {
+  summary_info <- list()
+  summary_info$rows <- nrow(dataset)
+  summary_info$columns <- ncol(dataset)
+  # number of unique Crime Against Catagory
+  summary_info$crime_against_types <- dataset %>%
+    select("Crime Against Category") %>%
+    unique() %>%
+    nrow()
+  # number of unique offense parent group
+  summary_info$offense_parent_types <- dataset %>%
+    select("Offense Parent Group") %>%
+    unique() %>%
+    nrow()
+  # number of unique offese type
+  summary_info$offense_types <- dataset %>%
+    select(Offense) %>%
+    unique() %>%
+    nrow()
+  # number of average offense time
+  summary_info$average_offense_time_days <- dataset %>%
+    select(
+      start = "Offense Start DateTime",
+      end = "Offense End DateTime"
+    ) %>%
+    mutate(timediff = difftime(end, start, units = "days")) %>%
+    summarise(avg = mean(timediff, na.rm = TRUE)) %>%
+    as.numeric() %>%
+    # round to first digit
+    round(digits = 1)
+  # number of average crimes per neighborhood
+  summary_info$avg_crimes_per_neighborhood <- dataset %>%
+    group_by(MCPP) %>%
+    summarise(count = n()) %>%
+    summarise(avg = mean(count, na.rm = TRUE)) %>%
+    as.numeric() %>%
+    round(digits = 0)
+  # list of top 5 safest neighborhood
+  summary_info$safest_neighborhoods <- dataset %>%
+    group_by(MCPP) %>%
+    summarise(count = n()) %>%
+    arrange(count) %>%
+    head(5) %>%
+    select(MCPP) %>%
+    as.list()
+  # list of top 5 dangerous neighborhood
+  summary_info$badest_neighborhoods <- dataset %>%
+    group_by(MCPP) %>%
+    summarise(count = n()) %>%
+    arrange(desc(count)) %>%
+    head(5) %>%
+    select(MCPP) %>%
+    as.list()
+  # list of top 5 crime type
+  summary_info$most_common_crimes <- dataset %>%
+    group_by(Offense) %>%
+    summarise(count = n()) %>%
+    arrange(desc(count)) %>%
+    head(5) %>%
+    select(Offense) %>%
+    as.list()
+  # list of 5 least common crime type
+  summary_info$least_common_crimes <- dataset %>%
+    group_by(Offense) %>%
+    summarise(count = n()) %>%
+    arrange(count) %>%
+    head(5) %>%
+    select(Offense) %>%
+    as.list()
+  return(summary_info)
+}
+
+summary_table <- get_summary_info(seattle_data)
+
+
+
+neighborhood_crime <- seattle_data %>%
+  group_by(MCPP) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count)) %>%
+  head(10)
+
+types_of_crime <- seattle_data %>%
+  group_by(Offense) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count)) %>%
+  head(10)
+
+crime_density <- mainPanel(
   h1("Summary of Analysis"),
-  h2("Finding #1"),
-  p("Answersr"),
-  h2("Finding #2"),
-  p("Stuf Stuff"),
+  h2("Crime Density"),
+  p("We've analyzed various neighborhoods crime data and found that",
+    summary_table$badest_neighborhoods$MCPP[1] %>%
+      str_to_title(locale = "en"),
+    "had the most significant amount of crime. The surrounding neighboords also
+    had noticable amounts of crime reports, including that of
+    Bell Town and First Hill which surround the Downtown Central Buisness District."),
+  plotOutput("neghborhood_bar_chart"),
+  h2("Most Common Crimes"),
+  p("When analyzing the different types of crime in our dataset we noticed that
+    many of our findings were intuitive, such as",
+    summary_table$most_common_crimes$Offense[1] %>%
+      str_to_title(locale = "en"),
+    "being the most common crime through the city. This is a crime many of us
+    have heard throughout the news or between our friends. Note the difference
+    between this crime, and the next one. We are able to conclude that this
+    crime is of extraordinaty prevalence. Many neighborhoods report this as the
+    most common crime."),
+  plotOutput("types_bar_chart"),
   h2("Finding 3"),
   p("Lorem Ipsum is cool")
+)
+
+summary_info <- tabPanel(
+  "Summary",
+  crime_density
 )
