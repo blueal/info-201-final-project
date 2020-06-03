@@ -4,7 +4,7 @@ side_bar <- sidebarPanel(
   with a myriad of other unaddressed community issues, safety
   for the public is of ", em("utmost"), " concern. Non-stop UW Alerts
   reporting ", strong("robbery"), ", ", strong("gun violence"), ", ",
-  strong("assualt"), ", etc. push safety into the forefront of UW students'
+  strong("assault"), ", etc. push safety into the forefront of UW students'
   minds."),
   HTML('<center><img src="alert.png" width = 200 height = 200></center>'),
   p("Therefore, as a team, we decided to tie our Info 201 Final Project to
