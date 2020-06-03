@@ -103,7 +103,8 @@ crime_density <- mainPanel(
       str_to_title(locale = "en"),
     "had the most significant amount of crime. The surrounding neighboords also
     had noticable amounts of crime reports, including that of
-    Bell Town and First Hill which surround the Downtown Central Buisness District."),
+    Capitol Hill which is easily accesible to the Central Buisness District.
+    "),
   plotOutput("neghborhood_bar_chart"),
   h2("Most Common Crimes"),
   p("When analyzing the different types of crime in our dataset we noticed that
@@ -116,8 +117,17 @@ crime_density <- mainPanel(
     crime is of extraordinaty prevalence. Many neighborhoods report this as the
     most common crime."),
   plotOutput("types_bar_chart"),
-  h2("Finding 3"),
-  p("Lorem Ipsum is cool")
+  h2("Timing of crimes"),
+  p("Many people beleive lots of crimes occur at night but the data shows that
+    most crimes occur during the afternoon. The little hours of the night around
+    4-5 am have the littliest amount of crime overall. You are statistically
+    safer, and less likely to be the victim or witness of a crime at the very
+    early morning hours. Just about around noon, we can see that crime jumps
+    high in the sky."),
+  p("Some crimes however had noted \"flat\" curves for time, and as such you
+  might have a statistically higher chance of being the victim of that crime
+    as opposed to others. An example of this would be, Kidnapping, Assault,
+    and Arson.")
 )
 
 summary_info <- tabPanel(
