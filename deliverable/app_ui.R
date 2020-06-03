@@ -10,6 +10,7 @@ ui <- fluidPage(
     overview,
     map_page,
     time_page,
+    crime_type_page,
     summary_info
   )
 )

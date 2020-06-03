@@ -64,4 +64,18 @@ server <- function (input, output) {
       # set x-axis title
       xlab("Hour of Day")
   })
+  
+  output$bar <- renderPlot({
+    p <- ggplot(data_with_count, aes(y=count,
+                                     x=.data[[input$x_var]],
+                                     fill=.data[[input$y_group]])) + 
+      geom_bar(stat="identity") +
+      scale_y_continuous(expand = c(0, 0)) +
+      ylab("Count") +
+      xlab("Group") 
+    if (input$x_var == "offense_parent_group" | input$x_var == "offense"){
+      p <- p + coord_flip()
+    }
+    p
+  })
 }
