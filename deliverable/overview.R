@@ -3,7 +3,7 @@ side_bar <- sidebarPanel(
   p("Since strict gun regulations do not exist in the United States, safety
   for the public is of ", em("utmost"), " concern. Non-stop UW Alerts
   reporting ", strong("robbery"), ", ", strong("gun violence"), ", ",
-  strong("assualt"), ", etc. push safety into the forefront of UW students'
+  strong("assault"), ", etc. push safety into the forefront of UW students'
   minds."),
   p("Therefore, as a team, we decided to tie our Info 201 Final Project to
   our daily lives by analyzing crime patterns within our community - ",
