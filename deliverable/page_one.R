@@ -1,28 +1,33 @@
 # Creates leaflet map for Seattle dataset
-seattle_data <- 
+seattle_data_small <- 
   vroom("https://data.seattle.gov/resource/tazs-3rd5.csv")
 
-location <- seattle_data %>%
-  select(
-    crime_against_category,
-    precinct,
-    offense,
-    `_100_block_address`,
-    latitude,
-    longitude,
-  ) %>%
-  filter(latitude != "0E-9") %>%
+location <- seattle_data_small %>%
   mutate(
     Latitude = as.numeric(latitude),
-    Longitude = as.numeric(longitude)
-  )
+    Longitude = as.numeric(longitude),
+    Crime = crime_against_category,
+    Precinct = precinct
+  ) %>%
+  select(
+    Crime,
+    Precinct,
+    offense,
+    `_100_block_address`,
+    offense_parent_group,
+    Latitude,
+    Longitude
+  ) %>%
+  filter(Latitude != 0.00000)
 
 description <- paste0(
-  "<b>Address: </b>", seattle_data$`_100_block_address`,
+  "<b>Address: </b>", seattle_data_small$`_100_block_address`,
   "<br/>",
-  "<b>Crime Type: </b>", seattle_data$crime_against_category,
+  "<b>Crime Label: </b>", seattle_data_small$offense_parent_group,
   "<br/>",
-  "<b>Offense: </b>", seattle_data$offense
+  "<b>Crime Type: </b>", seattle_data_small$crime_against_category,
+  "<br/>",
+  "<b>Offense: </b>", seattle_data_small$offense
 )
 
 map_page <- tabPanel(
@@ -42,7 +47,7 @@ map_page <- tabPanel(
       selectInput(
         "key",
         "Key",
-        choices = colnames(location[1:2])
+        choices = names(location[1:2])
       ),
       checkboxInput(
         inputId = "legend",
@@ -52,3 +57,4 @@ map_page <- tabPanel(
     )
   )
 )
+

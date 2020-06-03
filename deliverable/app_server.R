@@ -13,24 +13,27 @@ server <- function (input, output) {
   # Takes in user's input about the color
   # palette
   colorpal <- reactive ({
-    colorFactor(input$colors, 
-                 location$precinct)
+    if(input$key == "Crime") {
+      colorFactor(input$colors, location$Crime)
+    } else {
+      colorFactor(input$colors, location$Precinct)
+    }
   })
   
   # Changes the color palette of the map
   # according to user input
   observe({
-    pal <- colorpal()
-    leafletProxy("map", data = location) %>%
-      clearShapes() %>%
-      addCircles(
-        lat = ~Latitude,
-        lng = ~Longitude,
-        color = ~pal(precinct),
-        fillOpacity = 0.7,
-        popup = ~description,
-        radius = 25
-      )
+      pal <- colorpal()
+      leafletProxy("map", data = location) %>%
+        clearShapes() %>%
+        addCircles(
+          lat = ~Latitude,
+          lng = ~Longitude,
+          color = ~pal(location[[input$key]]),
+          fillOpacity = 0.7,
+          popup = ~description,
+          radius = 25
+        )
   })
 
   # Responds to user's input about displaying the 
@@ -43,7 +46,9 @@ server <- function (input, output) {
       proxy %>% addLegend(
         position = "bottomright",
         pal = pal,
-        values = ~precinct)
+        values = location[[input$key]],
+        title = input$key
+        )
     } 
   })
   
