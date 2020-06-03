@@ -31,6 +31,7 @@ y_input <- selectInput(
 
 crime_type_page <- tabPanel(
   "Criminal Activity Types and Frequency",
+  h2("Seattle Data Crime Types Exploration"),
   p("In this section, we will be using the Seattle dataset
   to group crimes in diffent ways and show the frequency of the grouping."),
   sidebarPanel(
@@ -46,8 +47,9 @@ crime_type_page <- tabPanel(
     easily trace each intersection and know that ", em("Larceny-Theft"),
     " is the most popular parent crime group in the Seattle area. 
     Also the color ledgend allow us to see two grouping at the same time.
-    For example, the parent crime group, ", em("Larceny-Theft"),
-    "'s most popular crime against catagory is of, ", em("PROPERTY"),
+    For example, when we group by the parent crime group and color it by
+    crime against catagory, we can observe that ", em("Larceny-Theft"),
+    "'s most popular crime is against ", em("PROPERTY"),
     ".")
   ),
   plotOutput("bar")
