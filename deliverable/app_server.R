@@ -13,11 +13,7 @@ server <- function (input, output) {
   # Takes in user's input about the color
   # palette
   colorpal <- reactive ({
-    if(input$key == "Crime") {
-      colorFactor(input$colors, location$Crime)
-    } else {
-      colorFactor(input$colors, location$Precinct)
-    }
+      colorFactor(input$colors, location[[input$key]])
   })
   
   # Changes the color palette of the map
