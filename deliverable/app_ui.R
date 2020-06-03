@@ -5,9 +5,8 @@ source("page_three.R")
 source("summary.R")
 ui <- fluidPage(
   theme = shinythemes::shinytheme("superhero"),
-  h1("Seattle's Criminal Activity"),
   navbarPage(
-    "Tabs",
+    "Seattle Crime",
     overview,
     map_page,
     time_page,
