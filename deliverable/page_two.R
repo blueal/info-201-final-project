@@ -1,14 +1,3 @@
-library(shiny)
-library(ggplot2)
-library(tidyr)
-library(leaflet)
-library(vroom)
-library(dplyr)
-library(styler)
-library(RColorBrewer)
-library(rsconnect)
-library(stringr)
-
 source("datasets.R")
 
 
