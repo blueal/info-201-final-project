@@ -9,8 +9,8 @@ ui <- fluidPage(
     "Seattle Crime",
     overview,
     map_page,
-    time_page,
     crime_type_page,
+    time_page,
     summary_info
   )
 )
