@@ -1,6 +1,5 @@
 source("datasets.R")
 
-
 names_of_filter <- c("Group" = "group_a_b",
                     "Category" = "crime_against_category",
                     "Offense Parent Group" = "offense_parent_group",
@@ -34,7 +33,7 @@ crime_type_page <- tabPanel(
     chart allows us to easily correlate two groupings at the same time.
     For example, when we group by the parent crime and color it by
     crime against catagory, we can observe that ", em("Larceny-Theft"),
-    "'s most popular crime is against ", em("PROPERTY"),". Additionally,
+    "'s most popular crime is against ", em("PROPERTY"), ". Additionally,
     Group A indicates ...while Group B is..."
     ),
     plotOutput("bar")
@@ -54,40 +53,3 @@ crime_type_page <- tabPanel(
     group.")
   )
 )
-
-ui <- fluidPage(
-  theme = shinythemes::shinytheme("superhero"),
-  navbarPage(
-    "Seattle Crime",
-    crime_type_page
-  )
-)
-
-server <- function(input, output) {
-  output$excluded_groups <- renderUI({
-    checkboxGroupInput(inputId = "x_exclude",
-                       label = "Exclude groups",
-                       choices = unique(data_with_count[[input$x_var]])
-    )
-  })
-  
-  output$bar <- renderPlot({
-    current_dataset <- data_with_count
-    for (i in input$x_exclude){
-      current_dataset <- current_dataset %>% filter(.data[[input$x_var]] != i) 
-    }
-    p <- ggplot(data = current_dataset, aes(y=count,
-                                            x=.data[[input$x_var]],
-                                            fill=.data[[input$y_group]])) + 
-      geom_bar(stat="identity") +
-      scale_y_continuous(expand = c(0, 0)) +
-      ylab("Count") +
-      xlab("Group") 
-    if (input$x_var == "offense_parent_group" | input$x_var == "offense"){
-      p <- p + coord_flip()
-    }
-    p
-  })
-}
-
-shinyApp(ui = ui, server = server)
