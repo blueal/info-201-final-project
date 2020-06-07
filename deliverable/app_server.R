@@ -123,7 +123,7 @@ server <- function (input, output) {
       scale_y_continuous(expand = c(0, 0)) +
       ylab("Count") +
       xlab("Group") 
-    if (input$x_var == "offense_parent_group" | input$x_var == "offense"){
+    if (input$x_var == "Offense Parent Group" | input$x_var == "Offense"){
       p <- p + coord_flip()
     }
     p
