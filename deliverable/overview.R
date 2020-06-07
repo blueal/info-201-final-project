@@ -49,7 +49,9 @@ main <- mainPanel(
   p("Due to the enormity of this dataset -", strong("800,000+"), "rows - our
     team was forced to reduce its size in order to render our Offense Map &
     Time Barchart. We accomplished this by randomly selecting 100,000 rows of
-    the original dataset, hoping for a representative sample population."),
+    the original dataset, hoping for a representative sample population.
+    Additionally, data displayed on the map only includes reports since the
+    beginning of 2020."),
 
   # datasets to use for the future
   h4("Data for Future Analysis"),
