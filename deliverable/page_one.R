@@ -1,5 +1,4 @@
-seattle_data_small <- 
-  vroom("https://data.seattle.gov/resource/tazs-3rd5.csv")
+source('datasets.R')
 
 location <- seattle_data_small %>%
   mutate(

@@ -1,19 +1,8 @@
-library("vroom")
-#make an interactive plot that 
-seattle_data1 <- vroom("https://data.seattle.gov/api/views/tazs-3rd5/rows.csv")
- # vroom("https://data.seattle.gov/resource/tazs-3rd5.csv")
-seattle_data <- sample_n(seattle_data1, 100000)
-get_count <- seattle_data %>%
-  mutate(count = 1)
-get_hours <- get_count %>%
-  mutate(hour_of_day = substr(`Offense Start DateTime`, 11, 13)) %>%
-  filter(hour_of_day != "NA") %>%
-  group_by(hour_of_day)
+source("datasets.R")
 
 time_page <- tabPanel(
-  "Crime Type vs. Time of Day Activity",
-  p("In this section, the Seattle Dataset will be used to identify and show
-    what crimes occur at certain times of the day"),
+  "Time of Criminal Activity",
+  h2("Number of Crimes per Hour"),
   p("To begin select a crime of your choice in the drop down menu below"),
   sidebarPanel(
     selectInput(inputId = "type_of_crime",
@@ -22,5 +11,11 @@ time_page <- tabPanel(
   ),
   mainPanel(
     plotOutput(outputId = "barchart")
+  ),
+  h2("Insights"),
+  sidebarPanel(
+    width = 8,
+    p("In this section, the Seattle Dataset will be used to identify and show
+    what crimes occur at certain times of the day"),
   )
 )
