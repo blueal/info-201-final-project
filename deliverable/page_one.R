@@ -72,5 +72,3 @@ map_page <- tabPanel(
     for each offense.")
   )
 )
-
-  
