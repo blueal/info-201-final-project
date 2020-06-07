@@ -32,9 +32,6 @@ description <- paste0(
 map_page <- tabPanel(
   "Mapping Criminal Activity",
   h2("Seattle Map of Reported Criminal Offense"),
-  p("In this section, the Seattle dataset will be used to map the locations
-    of different incidents. This first map gives a general overview of the
-    different criminal offenses."),
   sidebarLayout(
     mainPanel(
       leafletOutput(
@@ -59,7 +56,7 @@ map_page <- tabPanel(
     width = 8,
     p("This interactive map displays not only the relative location of
     each, but also the", strong("address"), ", ", strong("crime label"), 
-      ", ", strong("crime type"), ", and ", strong("offense"), ". Looking
+    ", ", strong("crime type"), ", and ", strong("offense"), ". Looking
     at the crime type, the majority of the criminal incidents were offenses
     to 'PROPERTY'. What this means is that incidents that are catgeorized as
     damage/destruction to 'PROPERTY' occur more frequently than those 

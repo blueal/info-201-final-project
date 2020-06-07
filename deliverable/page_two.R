@@ -32,8 +32,7 @@ crime_type_page <- tabPanel(
     chart allows us to easily correlate two groupings at the same time.
     For example, when we group by the parent crime and color it by
     crime against catagory, we can observe that ", em("Larceny-Theft"),
-    "'s most popular crime is against ", em("PROPERTY"), ". Additionally,
-    Group A indicates ...while Group B is..."
+    "'s most popular crime is against ", em("PROPERTY"), "."
     ),
     plotOutput("bar"),
     h2("Insights"),
