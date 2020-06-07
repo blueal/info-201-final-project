@@ -12,24 +12,15 @@ get_hours <- get_count %>%
 
 time_page <- tabPanel(
   "Crime Type vs. Time of Day Activity",
-  h2("Plot Showing Crime Frequency per Hour"),
-  p("In this section, the Seattle Data set will be used to indentify and show
-    what crimes occurr at certain times of the day"),
+  p("In this section, the Seattle Dataset will be used to identify and show
+    what crimes occur at certain times of the day"),
   p("To begin select a crime of your choice in the drop down menu below"),
   sidebarPanel(
     selectInput(inputId = "type_of_crime",
               label = "Type of Crime",
-              choices = c(get_hours$`Offense Parent Group`),
-              selected = NULL)
+              choices = c(get_hours$`Offense Parent Group`))
   ),
   mainPanel(
     plotOutput(outputId = "barchart")
-  ),
-  h2("Insights"),
-  p("This bar chart gives us the ability to understand when we are most likley to be a
-    victim of a certain crime. We can see that driving under the influence follows
-    a steady trend of rates increasing from early evening and tapering back down at 
-    midnight. The plot allows us to analyize if other crimes also follow trends like
-    this one.")
-  
+  )
 )
