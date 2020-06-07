@@ -29,6 +29,10 @@ y_input <- selectInput(
   choices = names_of_filter
 )
 
+#top_n_data <- sliderInput("obs", "Number of observations:",  
+ #             min = 1, max = data_with_count %>% group_by(x_input), value = 10)
+
+
 crime_type_page <- tabPanel(
   "Criminal Activity Types and Frequency",
   h2("Seattle Data Crime Types Exploration"),
@@ -36,7 +40,8 @@ crime_type_page <- tabPanel(
   to group crimes in diffent ways and show the frequency of the grouping."),
   sidebarPanel(
     x_input,
-    y_input
+    y_input,
+    uiOutput("excluded_groups")
   ),
   sidebarPanel(
     width = 8,
@@ -53,6 +58,6 @@ crime_type_page <- tabPanel(
     ".")
   ),
   plotOutput("bar")
-  
 )
+
 

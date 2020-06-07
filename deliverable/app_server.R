@@ -101,10 +101,20 @@ server <- function (input, output) {
     bar_graph
   })
   
+  output$excluded_groups <- renderUI({
+    checkboxGroupInput(inputId = "x_exclude",
+                       label = "Exclude groups",
+                       choices = unique(data_with_count[[input$x_var]])
+    )
+  })
   output$bar <- renderPlot({
-    p <- ggplot(data_with_count, aes(y=count,
-                                     x=.data[[input$x_var]],
-                                     fill=.data[[input$y_group]])) + 
+    current_dataset <- data_with_count
+    for (i in input$x_exclude){
+      current_dataset <- current_dataset %>% filter(.data[[input$x_var]] != i) 
+    }
+    p <- ggplot(data = current_dataset, aes(y=count,
+                                            x=.data[[input$x_var]],
+                                            fill=.data[[input$y_group]])) + 
       geom_bar(stat="identity") +
       scale_y_continuous(expand = c(0, 0)) +
       ylab("Count") +
