@@ -17,15 +17,19 @@ server <- function (input, output) {
   })
   
   # Changes the color palette of the map
-  # according to user input
+  # according to user input as well as the
+  # point mapping.
   observe({
-      pal <- colorpal()
-      leafletProxy("map", data = location) %>%
+    offense_map <- location %>%
+      filter(offense == input$offense)
+    
+    pal <- colorpal()
+      leafletProxy("map", data = offense_map) %>%
         clearShapes() %>%
         addCircles(
           lat = ~Latitude,
           lng = ~Longitude,
-          color = ~pal(location[[input$key]]),
+          color = ~pal(offense_map[[input$key]]),
           fillOpacity = 0.7,
           popup = ~description,
           radius = 25

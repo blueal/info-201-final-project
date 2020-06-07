@@ -48,6 +48,9 @@ map_page <- tabPanel(
       selectInput("offense", "Offense",
                   choices = c(location$offense)
       ),
+      selectInput("offense", "Offense",
+                  choices = c(location$offense)
+      ),
       selectInput("key", "Key", choices = names(location[1:2])
       ),
       checkboxInput(inputId = "legend", "Show Legend", TRUE
@@ -67,7 +70,7 @@ map_page <- tabPanel(
     on the map appears to group around First Hill and Belltown, which are
     precincts W and E. An interesting insight that we found was that
     one of the least occurring offenses were", strong("wire fraud"), " and",
-      strong("embezzlement"), ", where there were no more than 3 incidents
+    strong("embezzlement"), ", where there were no more than 3 incidents
     for each offense.")
   )
 )
