@@ -1,9 +1,8 @@
 source("datasets.R")
 
-names_of_filter <- c("Group" = "group_a_b",
-                    "Category" = "crime_against_category",
-                    "Offense Parent Group" = "offense_parent_group",
-                    "Offense Type" = "offense")
+names_of_filter <- c("Category" = "Crime Against Category",
+                    "Offense Parent Group" = "Offense Parent Group",
+                    "Offense Type" = "Offense")
 
 x_input <- selectInput(
   "x_var",
@@ -36,14 +35,7 @@ crime_type_page <- tabPanel(
     "'s most popular crime is against ", em("PROPERTY"), ". Additionally,
     Group A indicates ...while Group B is..."
     ),
-    plotOutput("bar")
-  ),
-  sidebarPanel(
-    x_input,
-    y_input,
-    uiOutput("excluded_groups")
-  ),
-  mainPanel(
+    plotOutput("bar"),
     h2("Insights"),
     p("This chart can answer the question: what crime type is the
     most popular? Because a bar chart because is the clearest way to display
@@ -51,5 +43,10 @@ crime_type_page <- tabPanel(
     em("Larceny-Theft"), " is the most popular parent crime
     group in the Seattle area by intersecting offense type with its parent
     group.")
+  ),
+  sidebarPanel(
+    x_input,
+    y_input,
+    uiOutput("excluded_groups")
   )
 )
