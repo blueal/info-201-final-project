@@ -48,9 +48,6 @@ map_page <- tabPanel(
       selectInput("offense", "Offense",
                   choices = c(location$offense)
       ),
-      selectInput("offense", "Offense",
-                  choices = c(location$offense)
-      ),
       selectInput("key", "Key", choices = names(location[1:2])
       ),
       checkboxInput(inputId = "legend", "Show Legend", TRUE
