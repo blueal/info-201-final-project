@@ -6,7 +6,7 @@ source("datasets.R")
 # and an insightful description
 time_page <- tabPanel(
   "Time of Criminal Activity",
-  h2("Number of Crimes per Hour"),
+  h1("Number of Crimes per Hour"),
   p("To begin select a crime of your choice in the drop down menu below."),
   sidebarLayout(
     mainPanel(plotOutput("barchart")),
@@ -16,7 +16,7 @@ time_page <- tabPanel(
                 choices = c(get_hours$`Offense Parent Group`))
     )
   ),
-  h1("Insights"),
+  h2("Insights"),
   sidebarPanel(
     width = 8,
     p("In this section, the Seattle Dataset will be used to identify and show
