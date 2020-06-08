@@ -106,16 +106,21 @@ server <- function (input, output) {
   })
   
   output$excluded_groups <- renderUI({
+    # create checkboxes
     checkboxGroupInput(inputId = "x_exclude",
                        label = "Exclude counts of",
                        choices = unique(get_count[[input$x_var]])
     )
   })
+  
   output$bar <- renderPlot({
+    # load data
     current_dataset <- get_count
+    # filter out checked checkboxes
     for (i in input$x_exclude){
       current_dataset <- current_dataset %>% filter(.data[[input$x_var]] != i) 
     }
+    # create plot
     p <- ggplot(data = current_dataset, aes(y=count,
                                             x=.data[[input$x_var]],
                                             fill=.data[[input$y_group]])) + 
@@ -123,6 +128,7 @@ server <- function (input, output) {
       scale_y_continuous(expand = c(0, 0)) +
       ylab("Count") +
       xlab("Group") 
+    # flip x-y axis for better display 
     if (input$x_var == "Offense Parent Group" | input$x_var == "Offense"){
       p <- p + coord_flip()
     }
