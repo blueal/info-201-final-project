@@ -34,3 +34,40 @@ get_hours <- get_count %>%
   group_by(hour_of_day)
 
 # summary
+
+get_summary_info <- function(dataset) {
+  summary_info <- list()
+  # list of top 5 safest neighborhood
+  summary_info$safest_neighborhoods <- dataset %>%
+    group_by(MCPP) %>%
+    summarise(count = n()) %>%
+    arrange(count) %>%
+    head(5) %>%
+    select(MCPP) %>%
+    as.list()
+  # list of top 5 dangerous neighborhood
+  summary_info$badest_neighborhoods <- dataset %>%
+    group_by(MCPP) %>%
+    summarise(count = n()) %>%
+    arrange(desc(count)) %>%
+    head(5) %>%
+    select(MCPP) %>%
+    as.list()
+  # list of top 5 crime type
+  summary_info$most_common_crimes <- dataset %>%
+    group_by(Offense) %>%
+    summarise(count = n()) %>%
+    arrange(desc(count)) %>%
+    head(5) %>%
+    select(Offense) %>%
+    as.list()
+  # list of 5 least common crime type
+  summary_info$least_common_crimes <- dataset %>%
+    group_by(Offense) %>%
+    summarise(count = n()) %>%
+    arrange(count) %>%
+    head(5) %>%
+    select(Offense) %>%
+    as.list()
+  return(summary_info)
+}

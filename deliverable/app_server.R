@@ -77,8 +77,9 @@ server <- function (input, output) {
                                   MCPP, 15),
                                 -count),
                             y=count)
+                        
                         ) +
-      geom_col() +
+      geom_bar(stat = "identity", fill = "#df691a") +
       theme(axis.text.x=element_text(angle=90,
                                      hjust=1,
                                      vjust=0.5)
@@ -95,8 +96,9 @@ server <- function (input, output) {
                                   Offense, 15),
                                 -count),
                             y=count)
+                        
     ) +
-      geom_col() +
+      geom_bar(stat="identity", fill = "#df691a") +
       theme(axis.text.x=element_text(angle=90,
                                      hjust=1,
                                      vjust=0.5)
