@@ -13,7 +13,7 @@ description <- paste0(
   "<b>Offense: </b>", seattle_data_small$offense
 )
 
-# Structuring the layout of the first page of the 
+# Structuring the layout of the first page of the
 # shiny application
 map_page <- tabPanel(
   "Mapping Criminal Activity",

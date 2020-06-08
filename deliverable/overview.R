@@ -6,7 +6,7 @@ side_bar <- sidebarPanel(
   reporting ", strong("robbery"), ", ", strong("gun violence"), ", ",
   strong("assault"), ", etc. push safety into the forefront of UW students'
   minds."),
-  HTML('<center><img src="alert.png" width = 200 height = 200></center>'),
+  HTML('<center><img id="uw-alert" src="alert.png" width = 200 height = 200></center>'),
   p("Therefore, as a team, we decided to tie our Info 201 Final Project to
   our daily lives by analyzing crime patterns within our ", strong("Seattle"),
   "community."),
