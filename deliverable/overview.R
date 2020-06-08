@@ -80,6 +80,7 @@ main <- mainPanel(
   h2("Resources"),
   p("Additional resources to unveil the process of crime data collection."),
   tags$ol(
+    id = "num_list",
     tags$li("An intersting perspective on the ",
             a("validity", href = "https://www.nap.edu/read/10581/chapter/2#2"),
             " of crime data collection & its implications"),
