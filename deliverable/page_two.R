@@ -18,27 +18,27 @@ y_input <- selectInput(
   choices = names_of_filter
 )
 
-#top_n_data <- sliderInput("obs", "Number of observations:",
- #             min = 1, max = data_with_count %>% group_by(x_input), value = 10)
-
 crime_type_page <- tabPanel(
   "Frequency of Criminal Activity",
   h2("Seattle Data Crime Types Exploration"),
   p("To begin, choose which category occurances will be counted & which will
     be differentiated by color."),
+  sidebarPanel(
+    x_input,
+    y_input,
+    uiOutput("excluded_groups")
+  ),
   mainPanel(
-    plotOutput("bar"),
-    h2("Insights"),
+    plotOutput("bar")
+  ),
+  h2("Insights"),
+  sidebarPanel(
+    width = 8,
     p("This chart can answer the question: what crime type is the
       most popular? Because a bar chart because is the clearest way to display
       comparison between counts of data, we can easily determine that",
       em("Larceny-Theft"), " is the most popular parent crime
       group in the Seattle area by intersecting offense type with its parent
       group, Property.")
-    ),
-  sidebarPanel(
-    x_input,
-    y_input,
-    uiOutput("excluded_groups")
   )
 )
