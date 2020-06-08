@@ -6,13 +6,12 @@ seattle_data <- sample_n(seattle_data1, 100000)
 # dataset manipulation page one
 
 
-# page two
-data_with_count <- seattle_data %>%
+
+# page two and three
+get_count <- seattle_data %>%
   mutate(count = 1)
 
 # page three
-get_count <- seattle_data %>%
-  mutate(count = 1)
 get_hours <- get_count %>%
   mutate(hour_of_day = substr(`Offense Start DateTime`, 11, 13)) %>%
   filter(hour_of_day != "NA") %>%

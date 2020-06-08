@@ -18,9 +18,6 @@ y_input <- selectInput(
   choices = names_of_filter
 )
 
-#top_n_data <- sliderInput("obs", "Number of observations:",
- #             min = 1, max = data_with_count %>% group_by(x_input), value = 10)
-
 crime_type_page <- tabPanel(
   "Frequency of Criminal Activity",
   h2("Seattle Data Crime Types Exploration"),

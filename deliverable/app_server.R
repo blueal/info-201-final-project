@@ -107,12 +107,12 @@ server <- function (input, output) {
   
   output$excluded_groups <- renderUI({
     checkboxGroupInput(inputId = "x_exclude",
-                       label = "Exclude groups",
-                       choices = unique(data_with_count[[input$x_var]])
+                       label = "Exclude counts of",
+                       choices = unique(get_count[[input$x_var]])
     )
   })
   output$bar <- renderPlot({
-    current_dataset <- data_with_count
+    current_dataset <- get_count
     for (i in input$x_exclude){
       current_dataset <- current_dataset %>% filter(.data[[input$x_var]] != i) 
     }
