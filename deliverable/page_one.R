@@ -1,5 +1,8 @@
+# Map page of shiny application
+
 source("datasets.R")
 
+# Information/Insights to be displayed in the map
 description <- paste0(
   "<b>Address: </b>", seattle_data_small$`_100_block_address`,
   "<br/>",
@@ -10,6 +13,8 @@ description <- paste0(
   "<b>Offense: </b>", seattle_data_small$offense
 )
 
+# Structuring the layout of the first page of the 
+# shiny application
 map_page <- tabPanel(
   "Mapping Criminal Activity",
   h2("Seattle Map of Reported Criminal Offense"),
@@ -19,6 +24,8 @@ map_page <- tabPanel(
         outputId = "map"
       )
     ),
+    # Three radio buttons to change the display
+    # of the interactive map
     sidebarPanel(
       selectInput("colors", "Color Scheme",
                   rownames(subset(brewer.pal.info,

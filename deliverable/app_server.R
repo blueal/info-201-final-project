@@ -52,6 +52,8 @@ server <- function (input, output) {
     } 
   })
   
+  # Creates a bar plot on the hour of day crimes
+  # are committed
   output$barchart <- renderPlot({
       get_hours %>%
       filter(`Offense Parent Group` == input$type_of_crime) %>% 
@@ -69,6 +71,8 @@ server <- function (input, output) {
       xlab("Hour of Day")
   })
   
+  # Creates a bar plot about the offense committed
+  # and in which neighborhood
   output$neghborhood_bar_chart <- renderPlot({
     bar_graph <- ggplot(neighborhood_crime,
                         aes(x=
@@ -83,10 +87,12 @@ server <- function (input, output) {
                                      hjust=1,
                                      vjust=0.5)
             ) +
-      labs(y= "Crime Count", x = "Offense Type")
+      labs(y= "Crime Count", x = "Neighborhood")
     bar_graph
   })
   
+  # Creates a bar plot to display the count
+  # for each offense
   output$types_bar_chart <- renderPlot({
     bar_graph <- ggplot(types_of_crime,
                         aes(x=
@@ -101,10 +107,11 @@ server <- function (input, output) {
                                      hjust=1,
                                      vjust=0.5)
       ) +
-      labs(y= "Crime Count", x = "Neighborhood")
+      labs(y= "Crime Count", x = "Offense Type")
     bar_graph
   })
   
+  # Changes display of plot according to user input
   output$excluded_groups <- renderUI({
     # create checkboxes
     checkboxGroupInput(inputId = "x_exclude",
@@ -113,6 +120,7 @@ server <- function (input, output) {
     )
   })
   
+  # Creates a bar plot that can be changed by the x-axis
   output$bar <- renderPlot({
     # load data
     current_dataset <- get_count
