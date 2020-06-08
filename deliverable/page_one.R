@@ -1,23 +1,5 @@
 source('datasets.R')
 
-location <- seattle_data_small %>%
-  mutate(
-    Latitude = as.numeric(latitude),
-    Longitude = as.numeric(longitude),
-    Crime = crime_against_category,
-    Precinct = precinct
-  ) %>%
-  select(
-    Crime,
-    Precinct,
-    offense,
-    `_100_block_address`,
-    offense_parent_group,
-    Latitude,
-    Longitude
-  ) %>%
-  filter(Latitude != 0.00000)
-
 description <- paste0(
   "<b>Address: </b>", seattle_data_small$`_100_block_address`,
   "<br/>",

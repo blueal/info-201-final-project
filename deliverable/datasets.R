@@ -4,7 +4,23 @@ seattle_data1 <- vroom("https://data.seattle.gov/api/views/tazs-3rd5/rows.csv")
 seattle_data <- sample_n(seattle_data1, 100000)
 
 # dataset manipulation page one
-
+location <- seattle_data_small %>%
+  mutate(
+    Latitude = as.numeric(latitude),
+    Longitude = as.numeric(longitude),
+    Crime = crime_against_category,
+    Precinct = precinct
+  ) %>%
+  select(
+    Crime,
+    Precinct,
+    offense,
+    `_100_block_address`,
+    offense_parent_group,
+    Latitude,
+    Longitude
+  ) %>%
+  filter(Latitude != 0.00000)
 
 # page two
 data_with_count <- seattle_data %>%
@@ -17,6 +33,5 @@ get_hours <- get_count %>%
   mutate(hour_of_day = substr(`Offense Start DateTime`, 11, 13)) %>%
   filter(hour_of_day != "NA") %>%
   group_by(hour_of_day)
-
 
 # summary

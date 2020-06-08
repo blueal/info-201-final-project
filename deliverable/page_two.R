@@ -26,20 +26,19 @@ crime_type_page <- tabPanel(
   h2("Seattle Data Crime Types Exploration"),
   p("To begin, choose which category occurances will be counted & which will
     be differentiated by color."),
-  plotOutput("bar"), 
-  sidebarPanel(
-    x_input,
-    y_input,
-    uiOutput("excluded_groups")
-  ),
-  h2("Insights"),
-  sidebarPanel(
-    width = 8,
+  mainPanel(
+    plotOutput("bar"),
+    h2("Insights"),
     p("This chart can answer the question: what crime type is the
       most popular? Because a bar chart because is the clearest way to display
       comparison between counts of data, we can easily determine that",
       em("Larceny-Theft"), " is the most popular parent crime
       group in the Seattle area by intersecting offense type with its parent
       group, Property.")
+    ),
+  sidebarPanel(
+    x_input,
+    y_input,
+    uiOutput("excluded_groups")
   )
 )
