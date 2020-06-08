@@ -1,4 +1,5 @@
 # Final Project
+### Anne Farley, Alex Friedberg, Jason Nguyen, Kristina Hsu, Ryan Carroll
 ## Domain of Interest
 ### **Reasons for Interest**
 - As students attending school in Seattle, crime in this area concerns our personal safety (i.e. types of crimes, frequency).
