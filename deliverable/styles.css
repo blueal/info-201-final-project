@@ -1,0 +1,11 @@
+#uw-alert{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+::selection {
+  background-color: #df691a;
+}
+h1 {
+  color: #df691a;
+}

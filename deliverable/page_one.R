@@ -17,7 +17,7 @@ description <- paste0(
 # shiny application
 map_page <- tabPanel(
   "Mapping Criminal Activity",
-  h2("Seattle Map of Reported Criminal Offense"),
+  h1("Seattle Map of Reported Criminal Offense"),
   sidebarLayout(
     mainPanel(
       leafletOutput(

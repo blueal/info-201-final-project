@@ -14,7 +14,7 @@ time_page <- tabPanel(
                 choices = c(get_hours$`Offense Parent Group`))
     )
   ),
-  h2("Insights"),
+  h1("Insights"),
   sidebarPanel(
     width = 8,
     p("In this section, the Seattle Dataset will be used to identify and show

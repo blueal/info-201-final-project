@@ -24,7 +24,7 @@ y_input <- selectInput(
 # Create tab
 crime_type_page <- tabPanel(
   "Frequency of Criminal Activity",
-  h2("Seattle Data Crime Types Exploration"),
+  h1("Seattle Data Crime Types Exploration"),
   p("To begin, choose which category occurances will be counted & which will
     be differentiated by color."),
   # Format displayment

@@ -4,6 +4,7 @@ source("page_two.R")
 source("page_three.R")
 source("summary.R")
 ui <- fluidPage(
+  includeCSS("styles.css"),
   theme = shinythemes::shinytheme("superhero"),
   navbarPage(
     "Seattle Crime",

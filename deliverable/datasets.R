@@ -34,7 +34,6 @@ get_hours <- get_count %>%
   group_by(hour_of_day)
 
 # summary
-
 get_summary_info <- function(dataset) {
   summary_info <- list()
   # list of top 5 safest neighborhood
