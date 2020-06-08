@@ -30,7 +30,7 @@ crime_type_page <- tabPanel(
       sidebarPanel(
         width = 12,
         p("This chart can answer the question: what crime type is the
-        most popular? Because a bar chart because is the clearest way to display
+        most popular? Because a bar chart is the clearest way to display
         comparison between counts of data, we can easily determine that",
           em("Larceny-Theft"), " is the most popular parent crime
         group in the Seattle area by intersecting offense type with its parent
