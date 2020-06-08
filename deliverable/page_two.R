@@ -23,11 +23,13 @@ crime_type_page <- tabPanel(
   h2("Seattle Data Crime Types Exploration"),
   p("To begin, choose which category occurances will be counted & which will
     be differentiated by color."),
-  plotOutput("bar"), 
   sidebarPanel(
     x_input,
     y_input,
     uiOutput("excluded_groups")
+  ),
+  mainPanel(
+    plotOutput("bar")
   ),
   h2("Insights"),
   sidebarPanel(
