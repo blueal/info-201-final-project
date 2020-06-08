@@ -41,8 +41,8 @@ crime_type_page <- tabPanel(
         most popular? Because a bar chart is the clearest way to display
         comparison between counts of data, we can easily determine that",
           em("Larceny-Theft"), " is the most popular parent crime
-        group in the Seattle area by intersecting offense type with its parent
-        group, Property.")
+        group in the Seattle area. And this type of crime is catagorised as 
+          crime against", em("Property"), ".")
       ),
     ),
     sidebarPanel(
