@@ -1,6 +1,3 @@
-
-library(dplyr)
-
 seattle_data <- vroom("https://data.seattle.gov/api/views/tazs-3rd5/rows.csv")
 
 # A function that takes in a dataset and returns a list of info about it:
