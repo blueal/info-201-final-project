@@ -6,7 +6,6 @@
 #Create summary of information based on data
 summary_table <- get_summary_info(seattle_data1)
 
-
 #Create the data for the first table
 #Get the neighborhoods with the highest crime
 neighborhood_crime <- seattle_data1 %>%
@@ -61,7 +60,7 @@ crime_density <- mainPanel(
     and Arson.")
 )
 
-#Generage Summary Page
+#Generate Summary Page
 summary_info <- tabPanel(
   "Summary",
   crime_density
