@@ -1,7 +1,5 @@
 # Map page of shiny application
 
-source("datasets.R")
-
 # Information/Insights to be displayed in the map
 description <- paste0(
   "<b>Address: </b>", seattle_data_small$`_100_block_address`,

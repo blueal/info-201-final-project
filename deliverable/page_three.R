@@ -1,7 +1,5 @@
 #Shiny app page consisting of hour od day of criminal activity
 
-source("datasets.R")
-
 # Creates a tab page consisting of a bar plot
 # and an insightful description
 time_page <- tabPanel(

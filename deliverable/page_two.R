@@ -1,7 +1,5 @@
 # Shiny app page consisting of interactive plot
 
-source("datasets.R")
-
 # create named-list of allows user choices
 names_of_filter <- c("Category" = "Crime Against Category",
                     "Offense Parent Group" = "Offense Parent Group",

@@ -11,5 +11,6 @@ library(stringr)
 
 source("app_ui.R")
 source("app_server.R")
+source("datasets.R")
 # Creates shiny application using "ui" and "server"
 shinyApp(ui = ui, server = server)
