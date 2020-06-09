@@ -1,16 +1,5 @@
 # Map page of shiny application
 
-# Information/Insights to be displayed in the map
-description <- paste0(
-  "<b>Address: </b>", seattle_data_small$`_100_block_address`,
-  "<br/>",
-  "<b>Crime Label: </b>", seattle_data_small$offense_parent_group,
-  "<br/>",
-  "<b>Crime Type: </b>", seattle_data_small$crime_against_category,
-  "<br/>",
-  "<b>Offense: </b>", seattle_data_small$offense
-)
-
 # Structuring the layout of the first page of the
 # shiny application
 map_page <- tabPanel(

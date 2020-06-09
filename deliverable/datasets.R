@@ -22,6 +22,16 @@ location <- seattle_data_small %>%
   ) %>%
   filter(Latitude != 0.00000)
 
+# Information/Insights to be displayed in the map
+description <- paste0(
+  "<b>Address: </b>", seattle_data_small$`_100_block_address`,
+  "<br/>",
+  "<b>Crime Label: </b>", seattle_data_small$offense_parent_group,
+  "<br/>",
+  "<b>Crime Type: </b>", seattle_data_small$crime_against_category,
+  "<br/>",
+  "<b>Offense: </b>", seattle_data_small$offense
+)
 
 # page two and three
 get_count <- seattle_data %>%

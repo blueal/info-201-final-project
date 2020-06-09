@@ -128,7 +128,7 @@ server <- function(input, output) {
     current_dataset <- get_count
     # filter out checked checkboxes
     for (i in input$x_exclude) {
-      current_dataset <- current_dataset %>% filter(.data[[input$x_var]] != i)
+      current_dataset <- seattle_data1 %>% filter(.data[[input$x_var]] != i)
     }
     # create plot
     p <- ggplot(data = current_dataset, aes(y = count,
